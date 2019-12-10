@@ -13,7 +13,7 @@ public class Forgot_password extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
     }
     public void clickonresetpassword(View view) {
-        Intent i = new Intent(this, Reset_password.class);
+        Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
     }
 }
