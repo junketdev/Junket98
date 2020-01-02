@@ -9,7 +9,8 @@
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
     android:gravity="center"
-    android:background="#fff">
+    android:background="@drawable/sea"
+    >
 
     <ImageView
         android:id="@+id/imageView"
@@ -71,7 +72,6 @@
         android:layout_height="50dp"
         android:hint="Enter Email"
         android:layout_marginTop="5dp"
-
         android:gravity="center_vertical"
         android:backgroundTint="@android:color/transparent"/>
 
@@ -149,7 +149,7 @@
             android:gravity="left"
             android:textSize="17sp"
             android:textStyle="bold"
-            android:textColor="#1E4867"
+            android:textColor="#ffffff"
             android:onClick="clickonforgotpassword"/>
 
         <TextView
@@ -161,7 +161,7 @@
             android:textSize="17sp"
             android:textStyle="bold"
             android:gravity="right"
-            android:textColor="#1E4867"
+            android:textColor="#ffffff"
             android:onClick="CLickonSignup"/>
 
     </LinearLayout>
