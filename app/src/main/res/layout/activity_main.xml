@@ -166,34 +166,51 @@
         </LinearLayout>
 
 
-        <RadioGroup
-            android:id="@+id/rg_gender"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_shape"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-            <RadioButton
-                android:id="@+id/radbtn_male"
+            <RadioGroup
+                android:id="@+id/rg_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male" />
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radbtn_female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
-                android:text="Female" />
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/radbtn_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/radbtn_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:text="Female" />
+                <RadioButton
+                    android:id="@+id/radbtn_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:text="Other"
+                    />
+            </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:layout_width="match_parent"
