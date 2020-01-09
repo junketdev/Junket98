@@ -10,30 +10,59 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:text="Question 1"
+        android:textSize="16dp"
+        android:padding="16dp"
+        android:paddingBottom="24dp"
         >
 
     </TextView>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="Where you want to travel ?"
+        android:textSize="24dp"
+        android:padding="16dp"
+        android:paddingBottom="24dp">
 
 
     </TextView>
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:paddingTop="48dp"
+
+        >
 
         <RadioButton
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"    />
+            android:layout_height="wrap_content"
+            android:paddingBottom="36dp"/>
         <RadioButton
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"    />
+            android:layout_height="wrap_content"
+            android:paddingBottom="36dp"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="36dp"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="36dp"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
 
 
 
 
-</LinearLayout>
+
+    </LinearLayout>
