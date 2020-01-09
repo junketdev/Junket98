@@ -25,7 +25,7 @@ public class HotelSearchActivity extends AppCompatActivity {
     }
 
     private void showHotelDetails(View v) {
-        Intent i = new Intent(this, HotelviewActivity.class);
+        Intent i = new Intent(this, HotelListActivity.class);
         startActivity(i);
 
     }
