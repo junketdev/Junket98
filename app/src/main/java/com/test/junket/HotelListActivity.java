@@ -3,11 +3,17 @@ package com.test.junket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
+import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
+import com.test.junket.adapters.HotelListAdapter;
+import com.test.junket.models.HotelInfoVo;
 
 import org.json.JSONObject;
 
@@ -15,10 +21,9 @@ import java.util.HashMap;
 
 public class HotelListActivity extends AppCompatActivity implements DataInterface {
 
-    LinearLayout layout1;
-
     Webservice_Volley Volley = null;
 
+    RecyclerView recyclerHotels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +32,50 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
 
         Volley = new Webservice_Volley(this,this);
 
-
-        layout1 = (LinearLayout)findViewById(R.id.layout1);
-        layout1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        recyclerHotels = (RecyclerView)findViewById(R.id.recyclerHotels);
+        recyclerHotels.setLayoutManager(new LinearLayoutManager(this));
 
 
-                HashMap<String,String> params = new HashMap<>();
+       String url = Constants.Webserive_Url+ "get_hotels.php";
 
-               // params.put("email",edt_email.getText().toString());
-                //params.put("user_password",edt_password.getText().toString());
+        HashMap<String,String> params = new HashMap<>();
 
-//                Volley.CallVolley(url,params,"user_login");
+        params.put("city","vadodara");
 
-                Intent i = new Intent(HotelListActivity.this,HotelviewActivity.class);
-                startActivity(i);
-            }
-        });
+        Volley.CallVolley(url,params,"HotelListActivity");
+
     }
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
+
+        try {
+
+            HotelInfoVo hotelInfoVo = new Gson().fromJson(jsonObject.toString(),HotelInfoVo.class);
+
+            if (hotelInfoVo != null) {
+
+                if (hotelInfoVo.getResult() != null) {
+
+                    if (hotelInfoVo.getResult().size() > 0) {
+
+                        HotelListAdapter hotelListAdapter = new HotelListAdapter(HotelListActivity.this,hotelInfoVo.getResult());
+                        recyclerHotels.setAdapter(hotelListAdapter);
+
+                    }
+
+
+                }
+
+            }
+
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
 
     }
 }

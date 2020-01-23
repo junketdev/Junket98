@@ -37,17 +37,11 @@
                 android:textColor="#fff"
                 />
 
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_gravity="right"
-                android:background="@drawable/ic_arrows_right"/>
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
 
 
             <TextView
@@ -73,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Monday 18"
+                android:textAlignment="textEnd"
                 android:textColor="#5D616A"
                 android:textSize="16dp"
                 android:layout_weight="1"/>
