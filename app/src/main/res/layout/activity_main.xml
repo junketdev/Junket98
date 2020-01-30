@@ -195,7 +195,7 @@
                     android:layout_marginLeft="48dp"
                     android:text="Female" />
                 <RadioButton
-                    android:id="@+id/radbtn_male"
+                    android:id="@+id/radbtn_other"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="48dp"

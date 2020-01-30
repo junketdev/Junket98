@@ -1,68 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".QuestionnaireActivity">
+    android:layout_gravity="bottom"
+    android:background="#f2f2f2"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/linear_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Question 1"
-        android:textSize="16dp"
-        android:padding="16dp"
-        android:paddingBottom="24dp"
-        >
+        android:layout_above="@+id/btn_continue"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context=".QuestionnaireActivity">
 
-    </TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Where you want to travel ?"
-        android:textSize="24dp"
-        android:padding="16dp"
-        android:paddingBottom="24dp">
-
-
-    </TextView>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="48dp"
-
-        >
-
-        <RadioButton
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="36dp"/>
-        <RadioButton
+            android:text="Question 1/10"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16dp"
+            android:layout_marginTop="32dp"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="36dp"/>
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="36dp"/>
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="36dp"/>
-
-    </RadioGroup>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </Button>
-
-
+            android:layout_marginTop="16dp"
+            android:text="Where you want to travel ?"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"/>
 
 
 
     </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="6dp"
+        android:layout_centerInParent="true">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="36dp"
+                />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="36dp"
+                android:layout_marginTop="10dp"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="36dp"
+                android:layout_marginTop="10dp"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="36dp"
+                android:layout_marginTop="10dp"/>
+
+        </RadioGroup>
+
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Continue"
+        android:textSize="18sp"
+        android:background="@drawable/edittext_shape"
+        android:padding="15dp"
+        android:textColor="#1E4867"
+        />
+
+</RelativeLayout>

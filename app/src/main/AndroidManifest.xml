@@ -10,10 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".QuestionnaireActivity"></activity>
+        <activity android:name=".QuestionnaireActivity">
+
+        </activity>
         <activity android:name=".HotelListActivity" />
         <activity
             android:name=".HotelSearchActivity"
+            android:theme="@style/AppTheme.Fullscreen">
+
+        </activity>
+        <activity
+            android:name=".SplashscreenActivity"
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SplashscreenActivity"
-            android:theme="@style/AppTheme.Fullscreen" />
+
         <activity
             android:name=".HotelviewActivity"
             android:theme="@style/AppTheme.Fullscreen" />
