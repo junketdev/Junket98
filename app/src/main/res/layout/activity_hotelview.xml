@@ -167,7 +167,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/devider"
+            android:background="@color/divider"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             />
@@ -217,7 +217,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/devider"
+            android:background="@color/divider"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
 
@@ -259,7 +259,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/devider"
+            android:background="@color/divider"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
 
