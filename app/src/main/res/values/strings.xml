@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Junket</string>
+  <string name="app_name">Junket</string>
+  <string name="title_activity_select_city">SelectCityActivity</string>
 </resources>
