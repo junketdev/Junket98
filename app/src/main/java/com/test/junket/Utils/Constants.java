@@ -6,7 +6,7 @@ package com.test.junket.Utils;
 public class Constants {
 
 
-   public static final String Webserive_Url="http://192.168.2.17:8012/JunketAdminPanel/api/";
+   public static final String Webserive_Url="http://192.168.2.10:8012/JunketAdminPanel/api/";
 
 
 //   public static final String IMAGE_Url="http://192.168.1.3/Nutrition_Diet_App/Uploads/";

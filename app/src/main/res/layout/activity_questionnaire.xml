@@ -22,6 +22,7 @@
         tools:context=".QuestionnaireActivity">
 
         <TextView
+            android:id="@+id/txt_questionNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Question 1/10"
@@ -31,12 +32,14 @@
             android:layout_marginTop="32dp"/>
 
         <TextView
+            android:id="@+id/txt_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Where you want to travel ?"
             android:textColor="@android:color/black"
-            android:textSize="17sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
 
 
@@ -50,33 +53,46 @@
         android:layout_centerInParent="true">
 
         <RadioGroup
+            android:id="@+id/rg_questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
             <RadioButton
+                android:id="@+id/rb_option1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="36dp"
-                />
+                android:layout_height="60dp"
+                android:text="ftufccfddyfyftuuuf"
+                android:textSize="17sp"
+                android:paddingLeft="10dp"
+               android:layout_marginTop="10dp" />
 
             <RadioButton
+                android:id="@+id/rb_option2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="36dp"
+                android:layout_height="60dp"
+                android:text="ftufccfddyfyftuuuf"
+                android:textSize="17sp"
+                android:paddingLeft="10dp"
                 android:layout_marginTop="10dp"/>
 
             <RadioButton
+                android:id="@+id/rb_option3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="36dp"
+                android:layout_height="60dp"
+                android:text="ftufccfddyfyftuuuf"
+                android:textSize="17sp"
+                android:paddingLeft="10dp"
                 android:layout_marginTop="10dp"/>
 
             <RadioButton
+                android:id="@+id/rb_option4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="36dp"
+                android:layout_height="60dp"
+                android:text="ftufccfddyfyftuuuf"
+                android:textSize="17sp"
+                android:paddingLeft="10dp"
                 android:layout_marginTop="10dp"/>
 
         </RadioGroup>
