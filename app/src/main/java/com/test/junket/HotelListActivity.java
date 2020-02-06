@@ -36,7 +36,7 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
         recyclerHotels.setLayoutManager(new LinearLayoutManager(this));
 
 
-       String url = Constants.Webserive_Url+ "get_hotels.php";
+       String url = Constants.Webserive_Url+ "get_hotels_with_room.php";
 
         HashMap<String,String> params = new HashMap<>();
 

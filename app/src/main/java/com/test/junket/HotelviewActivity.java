@@ -2,6 +2,8 @@ package com.test.junket;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.test.junket.Utils.Constants;
+import com.test.junket.adapters.HotelRoomAdapter;
 import com.test.junket.models.HotelResultVo;
 
 import org.w3c.dom.Text;
@@ -21,6 +24,8 @@ public class HotelviewActivity extends AppCompatActivity {
 
     HotelResultVo hotelResultVo;
 
+    RecyclerView recvRoomss;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,9 @@ public class HotelviewActivity extends AppCompatActivity {
         TextView txt_hotelcity = (TextView) findViewById(R.id.txt_hotelcity);
         TextView txt_hotelrating = (TextView) findViewById(R.id.txt_hotelrating);
         TextView txt_hotelprice = (TextView) findViewById(R.id.txt_hotelprice);
+         recvRoomss = (RecyclerView) findViewById(R.id.recvRoomss);
+
+        recvRoomss.setLayoutManager(new LinearLayoutManager(this));
 
         ImageView img_hotel=(ImageView)findViewById(R.id.img_hotel);
 
@@ -53,6 +61,17 @@ public class HotelviewActivity extends AppCompatActivity {
                     txt_hotelprice.setText(Constants.rupee_code +" "+ hotelResultVo.getMinPrice()+ "/Night");
 
                     Picasso.get().load(hotelResultVo.getImage()).into(img_hotel);
+
+                    if (hotelResultVo.getRooms() != null) {
+                        if (hotelResultVo.getRooms().size() > 0) {
+
+                            HotelRoomAdapter adapter = new HotelRoomAdapter(this, hotelResultVo.getRooms());
+                            recvRoomss.setAdapter(adapter);
+
+                        }
+                    }
+
+
                 }
         }
 

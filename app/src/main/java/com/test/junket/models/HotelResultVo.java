@@ -3,6 +3,8 @@ package com.test.junket.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class HotelResultVo {
     @SerializedName("hotelier_id")
     @Expose
@@ -61,6 +63,10 @@ public class HotelResultVo {
     @SerializedName("hotelier_tags")
     @Expose
     private String hotelierTags;
+
+    @SerializedName("rooms")
+    @Expose
+    private List<HotelRoomVo> rooms = null;
 
     public String getHotelierId() {
         return hotelierId;
@@ -213,5 +219,14 @@ public class HotelResultVo {
     public void setHotelierTags(String hotelierTags) {
         this.hotelierTags = hotelierTags;
     }
+
+    public List<HotelRoomVo> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<HotelRoomVo> rooms) {
+        this.rooms = rooms;
+    }
+
 
 }

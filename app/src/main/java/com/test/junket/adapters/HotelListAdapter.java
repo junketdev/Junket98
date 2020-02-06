@@ -41,25 +41,28 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
 
-        final HotelResultVo hotelResultVo = resultVos.get(i);
+        try {
+            final HotelResultVo hotelResultVo = resultVos.get(i);
 
-        viewHolder.txt_hotelname.setText(hotelResultVo.getHotelierName());
-        viewHolder.txt_hotelprice.setText(hotelResultVo.getMinPrice() + "/Night");
-        viewHolder.txt_hotelrating.setText(hotelResultVo.getRating());
+            viewHolder.txt_hotelname.setText(hotelResultVo.getHotelierName());
+            viewHolder.txt_hotelprice.setText(hotelResultVo.getMinPrice() + "/Night");
+            viewHolder.txt_hotelrating.setText(hotelResultVo.getRating());
 
-        Picasso.get().load(hotelResultVo.getImage()).into(viewHolder.img_hotel);
+            Picasso.get().load(hotelResultVo.getImage()).into(viewHolder.img_hotel);
 
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Intent i = new Intent(mContext, HotelviewActivity.class);
-                i.putExtra("data",new Gson().toJson(hotelResultVo));
-                mContext.startActivity(i);
+                    Intent i = new Intent(mContext, HotelviewActivity.class);
+                    i.putExtra("data", new Gson().toJson(hotelResultVo));
+                    mContext.startActivity(i);
 
-            }
-        });
+                }
+            });
+        }
+        catch (Exception e) {e.printStackTrace();}
 
     }
 
