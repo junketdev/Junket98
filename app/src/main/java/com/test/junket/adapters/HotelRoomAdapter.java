@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import com.test.junket.CheckoutActivity;
 import com.test.junket.HotelviewActivity;
 import com.test.junket.R;
 import com.test.junket.models.HotelResultVo;
@@ -55,9 +56,15 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
 //        Picasso.get().load(hotelRoomVo.getRoomImages()).into(viewHolder.img_roompic);
 
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.btn_bookroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent i = new Intent(mContext, CheckoutActivity.class);
+                mContext.startActivity(i);
+
+
+
 
             }
         });
