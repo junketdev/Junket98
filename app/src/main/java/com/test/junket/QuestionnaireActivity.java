@@ -1,6 +1,7 @@
 package com.test.junket;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,6 +42,8 @@ public class QuestionnaireActivity extends AppCompatActivity implements DataInte
 
     List<QuestionnaireResultVo> questionList = new ArrayList<>();
 
+    StringBuilder sb  = new StringBuilder();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +66,31 @@ public class QuestionnaireActivity extends AppCompatActivity implements DataInte
 
         HashMap<String,String> params = new HashMap<>();
 
-
         Volley.CallVolley(url,params,"get_questionnair");
+
         btn_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count++;
-                setData();
+
+                RadioButton rb  = (RadioButton)findViewById(rg_questions.getCheckedRadioButtonId());
+
+                if (rb  != null) {
+
+                    sb.append(rb.getText().toString()).append(",");
+
+
+                    count++;
+                    setData();
+
+
+                }
+                else {
+                    Snackbar.make(v,"Please Selet atleast one option before continue.",Snackbar.LENGTH_LONG).show();
+                }
+
+
+
+
             }
         });
 
@@ -110,44 +131,55 @@ public class QuestionnaireActivity extends AppCompatActivity implements DataInte
 
 
     }
-public void setData()  {
 
-        if ( count >= questionList.size())
-        {
+    public void setData() {
+
+        if (count >= questionList.size()) {
+
+            Intent i = new Intent(QuestionnaireActivity.this,Destination_List.class);
+            i.putExtra("tags",sb.toString().replaceAll(",$", ""));
+            startActivity(i);
+
+            finish();
+
             return;
         }
 
-        txt_questionNumber.setText("Question " + (count +1)+ " of " + questionList.size());
+        if (count == questionList.size()-1) {
+            btn_continue.setText("DONE");
+        }
+
+        txt_questionNumber.setText("Question " + (count + 1) + " of " + questionList.size());
 
         txt_question.setText(questionList.get(count).getQuestion());
 
         rg_questions.clearCheck();
 
-        if (!TextUtils.isEmpty(questionList.get(count).getOption1())){
+        if (!TextUtils.isEmpty(questionList.get(count).getOption1())) {
             rb_option1.setText(questionList.get(count).getOption1());
             rb_option1.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             rb_option1.setVisibility(View.GONE);
         }
 
-        if (!TextUtils.isEmpty(questionList.get(count).getOption2())){
-              rb_option2.setText(questionList.get(count).getOption2());
-              rb_option2.setVisibility(View.VISIBLE);
-        }else {
-              rb_option2.setVisibility(View.GONE);
-    }
+        if (!TextUtils.isEmpty(questionList.get(count).getOption2())) {
+            rb_option2.setText(questionList.get(count).getOption2());
+            rb_option2.setVisibility(View.VISIBLE);
+        } else {
+            rb_option2.setVisibility(View.GONE);
+        }
 
-        if (!TextUtils.isEmpty(questionList.get(count).getOption3())){
+        if (!TextUtils.isEmpty(questionList.get(count).getOption3())) {
             rb_option3.setText(questionList.get(count).getOption3());
             rb_option3.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             rb_option3.setVisibility(View.GONE);
-    }
-        if (!TextUtils.isEmpty(questionList.get(count).getOption4())){
+        }
+        if (!TextUtils.isEmpty(questionList.get(count).getOption4())) {
             rb_option4.setText(questionList.get(count).getOption4());
             rb_option4.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             rb_option4.setVisibility(View.GONE);
-    }
+        }
     }
 }

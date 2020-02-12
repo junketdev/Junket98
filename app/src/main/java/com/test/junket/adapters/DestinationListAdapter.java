@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        View vs = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_hotel_list_row,viewGroup,false);
+        View vs = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_destination_row,viewGroup,false);
 
         return new MyViewHolder(vs);
     }
@@ -48,8 +49,10 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
         viewHolder.txt_destinationname.setText(destinationResultVo.getDestName());
         viewHolder.txt_description.setText(destinationResultVo.getDescription());
 
+        if (!TextUtils.isEmpty(destinationResultVo.getImages())) {
 
-        Picasso.get().load(destinationResultVo.getImages()).into(viewHolder.img_destination);
+            Picasso.get().load(destinationResultVo.getImages()).into(viewHolder.img_destination);
+        }
 
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

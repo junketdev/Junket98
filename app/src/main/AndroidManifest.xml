@@ -12,21 +12,21 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
+    <activity android:name=".Destination_List"/>
     <activity
       android:name=".SelectCityActivity"
       android:label="@string/title_activity_select_city"
       android:theme="@style/AppTheme.NoActionBar"></activity>
-    <activity
-      android:name=".QuestionnaireActivity">
-
-    </activity>
-    <activity android:name=".HotelListActivity" >
-
+    <activity android:name=".QuestionnaireActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
+    </activity>
+    <activity android:name=".HotelListActivity" >
+
+
 
     </activity>
     <activity
