@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.junket">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CheckoutActivity"></activity>
+        <activity android:name=".AttractionActivity"></activity>
+        <activity android:name=".CheckoutActivity" />
         <activity
             android:name=".SelectCityActivity"
             android:label="@string/title_activity_select_city"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".QuestionnaireActivity"></activity>
-
+        <activity android:name=".QuestionnaireActivity" />
         <activity android:name=".HotelListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,13 +28,13 @@
         </activity>
         <activity
             android:name=".HotelSearchActivity"
-            android:theme="@style/AppTheme.Fullscreen"></activity>
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".SplashscreenActivity"
             android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".HotelviewActivity"
-            android:theme="@style/AppTheme.Fullscreen"></activity>
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity android:name=".Create_new_password" />
         <activity android:name=".Reset_password" />
         <activity
@@ -45,7 +47,5 @@
             android:name=".SignupActivity"
             android:theme="@style/AppTheme.Fullscreen" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
