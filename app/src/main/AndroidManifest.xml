@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AttractionActivity"></activity>
+        <activity android:name=".AttractionRow"></activity>
+        <activity android:name=".AttractionActivity" />
         <activity android:name=".CheckoutActivity" />
         <activity
             android:name=".SelectCityActivity"
