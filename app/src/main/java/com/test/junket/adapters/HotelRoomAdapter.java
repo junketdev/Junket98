@@ -32,7 +32,7 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
         mContext = context;
         roomVos = roomVoList;
     }
-
+//this is sample
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -41,7 +41,7 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
 
         return new MyViewHolder(vs);
     }
-
+//this is sample
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
 

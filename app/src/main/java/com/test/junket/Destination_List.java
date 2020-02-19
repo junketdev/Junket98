@@ -74,7 +74,7 @@ public class Destination_List extends AppCompatActivity implements DataInterface
 
                     if (destinationListVo.getResult().size() > 0) {
 
-                        DestinationListAdapter adapter = new DestinationListAdapter(this,destinationListVo.getResult());
+                        DestinationListAdapter adapter = new DestinationListAdapter(this, destinationListVo.getResult());
                         revDestination.setAdapter(adapter);
 
 

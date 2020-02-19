@@ -22,7 +22,7 @@ import java.util.List;
 public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyViewHolder> {
 
     Context mContext;
-    List<HotelResultVo> resultVos = new ArrayList<>();
+        List<HotelResultVo> resultVos = new ArrayList<>();
 
     public HotelListAdapter(Context context, List<HotelResultVo> resultVoList) {
         mContext = context;

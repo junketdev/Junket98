@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:background="#f2f2f2"
+    android:background="#232A34"
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
 
@@ -37,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Where you want to travel ?"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
 
@@ -50,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="6dp"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:backgroundTint="#232A34">
 
         <RadioGroup
             android:id="@+id/rg_questions"
@@ -66,6 +67,8 @@
                 android:text="ftufccfddyfyftuuuf"
                 android:textSize="17sp"
                 android:paddingLeft="10dp"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                android:layout_marginTop="10dp" />
 
             <RadioButton
@@ -75,6 +78,8 @@
                 android:text="ftufccfddyfyftuuuf"
                 android:textSize="17sp"
                 android:paddingLeft="10dp"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                 android:layout_marginTop="10dp"/>
 
             <RadioButton
@@ -84,6 +89,8 @@
                 android:text="ftufccfddyfyftuuuf"
                 android:textSize="17sp"
                 android:paddingLeft="10dp"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                 android:layout_marginTop="10dp"/>
 
             <RadioButton
@@ -93,6 +100,8 @@
                 android:text="ftufccfddyfyftuuuf"
                 android:textSize="17sp"
                 android:paddingLeft="10dp"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                 android:layout_marginTop="10dp"/>
 
         </RadioGroup>

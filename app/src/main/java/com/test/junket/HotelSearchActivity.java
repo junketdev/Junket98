@@ -4,45 +4,52 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.test.junket.Utils.Constants;
+import com.test.junket.Utils.DataInterface;
+import com.test.junket.Utils.Webservice_Volley;
+import com.test.junket.adapters.AttractionAdapter;
+import com.test.junket.models.AttractionVo;
+
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
-public class HotelSearchActivity extends AppCompatActivity {
+public class HotelSearchActivity extends AppCompatActivity implements DataInterface {
+    Webservice_Volley Volley = null;
 
-    TextView search;
+    TextView search,dateFrom,dateTo,bedsCount,adultsCount,childrenCount;
 
-    TextView dateFrom;
+    ImageView bedsMinus,bedsPlus,adultsPlus,adultsMinus,childrenMinus,childrenPlus;
 
-    TextView dateTo;
+    RecyclerView revAttraction;
 
-    ImageView bedsMinus;
-
-    ImageView bedsPlus;
-
-    TextView bedsCount;
-
-    ImageView adultsPlus;
-
-    ImageView adultsMinus;
-
-    TextView adultsCount;
-
-    ImageView childrenMinus;
-
-    ImageView childrenPlus;
-
-    TextView childrenCount;
+    String dest_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_search);
+
+        Volley = new Webservice_Volley(this, this);
+
+        dest_id = getIntent().getStringExtra("dest_id");
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("dest_id", dest_id);
+        String url = Constants.Webserive_Url + "get_attraction_from_destination.php";
+
+        Volley.CallVolley(url, params, "get_attraction_from_destination");
 
         search = (TextView) findViewById(R.id.btn_search);
         dateTo = (TextView) findViewById(R.id.textView_dateTo);
@@ -56,6 +63,11 @@ public class HotelSearchActivity extends AppCompatActivity {
         childrenMinus = (ImageView) findViewById(R.id.imageView_childrenMinus);
         childrenPlus = (ImageView) findViewById(R.id.imageView_childrenPlus);
         childrenCount = (TextView) findViewById(R.id.textView_childrenCount);
+
+        revAttraction = (RecyclerView)findViewById(R.id.revAttraction);
+
+        revAttraction.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +136,35 @@ public class HotelSearchActivity extends AppCompatActivity {
     private void showHotelDetails(View v) {
         Intent i = new Intent(this, HotelListActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void getData(JSONObject jsonObject, String tag) {
+        try {
+
+            AttractionVo attractionVo = new Gson().fromJson(jsonObject.toString(),AttractionVo.class);
+
+            if (attractionVo != null) {
+
+                if (attractionVo.getResult() != null) {
+
+                    if (attractionVo.getResult().size() > 0) {
+
+                        AttractionAdapter adapter = new AttractionAdapter(this,attractionVo.getResult());
+                        revAttraction.setAdapter(adapter);
+
+
+                    }
+
+                }
+
+            }
+
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void incrementer(TextView countView) {

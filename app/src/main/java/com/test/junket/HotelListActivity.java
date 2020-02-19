@@ -40,10 +40,11 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
 
         HashMap<String,String> params = new HashMap<>();
 
-        params.put("city","vadodara");
-
-        Volley.CallVolley(url,params,"HotelListActivity");
-
+        String city = getIntent().getStringExtra("city");
+        if (city != null) {
+            params.put("city", city);
+            Volley.CallVolley(url,params,"HotelListActivity");
+        }
     }
 
     @Override

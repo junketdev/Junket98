@@ -13,7 +13,10 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import com.test.junket.AttractionActivity;
 import com.test.junket.Destination_List;
+import com.test.junket.HotelListActivity;
+import com.test.junket.HotelSearchActivity;
 import com.test.junket.HotelviewActivity;
 import com.test.junket.R;
 import com.test.junket.models.DestinationResultVo;
@@ -58,6 +61,10 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), HotelSearchActivity.class);
+                i.putExtra("dest_id", destinationResultVo.getDestId());
+                v.getContext().startActivity(i);
+
 
             }
         });

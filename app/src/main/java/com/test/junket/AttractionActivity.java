@@ -14,7 +14,10 @@ import com.google.gson.Gson;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
+import com.test.junket.adapters.AttractionAdapter;
 import com.test.junket.adapters.DestinationListAdapter;
+import com.test.junket.models.AttractionResultVo;
+import com.test.junket.models.AttractionVo;
 import com.test.junket.models.DestinationListVo;
 import com.test.junket.models.DestinationResultVo;
 import com.test.junket.models.QuestionnaireResultVo;
@@ -66,32 +69,20 @@ public class AttractionActivity extends AppCompatActivity implements DataInterfa
 
         try {
 
-            DestinationListVo destinationListVo = new Gson().fromJson(jsonObject.toString(),DestinationListVo.class);
+            AttractionVo attractionVo = new Gson().fromJson(jsonObject.toString(),AttractionVo.class);
 
-            if (destinationListVo != null) {
-
-                if (destinationListVo.getResult() != null) {
-
-                    if (destinationListVo.getResult().size() > 0) {
-
-                        DestinationListAdapter adapter = new AttractionAdapter(this,attractionResultVo.getResult());
+            if (attractionVo != null) {
+                if (attractionVo.getResult() != null) {
+                    if (attractionVo.getResult().size() > 0) {
+                        AttractionAdapter adapter = new AttractionAdapter(this,attractionVo.getResult());
                         revAttraction.setAdapter(adapter);
-
-
                     }
-
                 }
-
             }
-
-
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 }
 

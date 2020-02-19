@@ -62,11 +62,11 @@ public class QuestionnaireActivity extends AppCompatActivity implements DataInte
         Volley = new Webservice_Volley(this,this);
 
 
-        String url = Constants.Webserive_Url+ "get_questionnair.php";
+        String url = Constants.Webserive_Url+ "get_questionnaire.php";
 
         HashMap<String,String> params = new HashMap<>();
 
-        Volley.CallVolley(url,params,"get_questionnair");
+        Volley.CallVolley(url,params,"get_questionnaire");
 
         btn_continue.setOnClickListener(new View.OnClickListener() {
             @Override

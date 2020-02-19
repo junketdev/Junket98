@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.test.junket">
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,11 +9,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".Profile_Screen"></activity>
-        <activity android:name=".AttractionRow" />
-        <activity android:name=".AttractionActivity" />
+        android:theme="@style/AppTheme.Fullscreen"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <activity android:name=".AttractionRow">
+
+        </activity>
+
+        <activity android:name=".AttractionActivity">
+
+        </activity>
+
+        <activity android:name=".Destination_List"/>
+
         <activity android:name=".CheckoutActivity" />
         <activity
             android:name=".SelectCityActivity"
@@ -22,32 +30,31 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".QuestionnaireActivity" />
         <activity android:name=".HotelListActivity">
+
+        </activity>
+        <activity
+            android:name=".HotelSearchActivity" />
+        <activity
+            android:name=".SplashscreenActivity"/>
+        <activity
+            android:name=".HotelviewActivity"/>
+        <activity android:name=".Create_new_password" />
+        <activity android:name=".Reset_password" />
+        <activity
+            android:name=".Forgot_password" />
+        <activity
+            android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".HotelSearchActivity"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity
-            android:name=".SplashscreenActivity"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity
-            android:name=".HotelviewActivity"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity android:name=".Create_new_password" />
-        <activity android:name=".Reset_password" />
-        <activity
-            android:name=".Forgot_password"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity
-            android:name=".SignupActivity"
-            android:theme="@style/AppTheme.Fullscreen" />
+            android:name=".SignupActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -150,7 +150,7 @@
             android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="#ffffff"
-            android:onClick="clickonforgotpassword"/>
+            android:onClick="clickOnForgetPassword"/>
 
         <TextView
             android:id="@+id/tv_signup"
@@ -162,7 +162,7 @@
             android:textStyle="bold"
             android:gravity="right"
             android:textColor="#ffffff"
-            android:onClick="CLickonSignup"/>
+            android:onClick="ClickOnSignup"/>
 
     </LinearLayout>
 

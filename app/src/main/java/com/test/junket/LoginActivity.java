@@ -3,6 +3,7 @@ package com.test.junket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
     }
 
-    public void CLickonSignup(View view) {
+    public void ClickOnSignup(View view) {
 
         Intent i = new Intent(this,SignupActivity.class);
         startActivity(i);
@@ -74,11 +75,22 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+//        Log.d("Login", jsonObject.toString());
+        try{
+            if(jsonObject.getInt("response") == 1) {
+                Intent i = new Intent(this,SelectCityActivity.class);
+                startActivity(i);
+            }
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(this, "Login Failed, Try Again !", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 
-    public void clickonforgotpassword(View view) {
+    public void clickOnForgetPassword(View view) {
         Intent i = new Intent(this,Forgot_password.class);
         startActivity(i);
     }
