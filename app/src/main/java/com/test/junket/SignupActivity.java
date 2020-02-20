@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity implements DataInterface {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
 
         edt_name=(EditText)findViewById(R.id.edt_name);
@@ -130,7 +130,8 @@ public class SignupActivity extends AppCompatActivity implements DataInterface {
 
     }
 
-    public void clickonback(View view) {finish();
+    public void clickonback(View view) {
+        finish();
     }
 
     @Override

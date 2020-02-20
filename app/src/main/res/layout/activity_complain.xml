@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@drawable/edittext_shape"
+            android:background="@drawable/edittext_shape_black"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -28,7 +28,8 @@
                 android:text="Complain Details"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:paddingLeft="4dp"/>
+                android:paddingLeft="4dp"
+                android:textColor="@color/white"/>
 
 
             <EditText
@@ -39,6 +40,8 @@
                 android:backgroundTint="@android:color/transparent"
                 android:gravity="center_vertical"
                 android:hint="Enter your Complain detail"
+                android:textColorHint="@color/light_grey"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -50,9 +53,9 @@
             android:layout_alignParentBottom="true"
             android:text="Enter"
             android:textSize="18sp"
-            android:background="@drawable/edittext_shape"
+            android:background="@drawable/edittext_shape_black"
             android:padding="15dp"
-            android:textColor="#1E4867"
+            android:textColor="@color/white"
             android:layout_marginTop="30dp"
             />
     </LinearLayout>

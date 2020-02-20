@@ -4,11 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.test.junket.Utils.Constants;
@@ -17,7 +12,6 @@ import com.test.junket.Utils.Webservice_Volley;
 import com.test.junket.adapters.DestinationListAdapter;
 import com.test.junket.models.DestinationListVo;
 import com.test.junket.models.DestinationResultVo;
-import com.test.junket.models.QuestionnaireResultVo;
 
 import org.json.JSONObject;
 
@@ -40,7 +34,7 @@ public class DestinationListActivity extends AppCompatActivity implements DataIn
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_destination__list);
+        setContentView(R.layout.activity_destination_list);
 
 
         Volley = new Webservice_Volley(this, this);

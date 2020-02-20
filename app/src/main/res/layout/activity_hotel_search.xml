@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#232A34"
+    android:background="@color/colorBackground"
     tools:context=".HotelSearchActivity">
-    
-    
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="250dp"

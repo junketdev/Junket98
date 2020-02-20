@@ -30,20 +30,20 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_list);
 
-        Volley = new Webservice_Volley(this,this);
+        Volley = new Webservice_Volley(this, this);
 
-        recyclerHotels = (RecyclerView)findViewById(R.id.recyclerHotels);
+        recyclerHotels = (RecyclerView) findViewById(R.id.recyclerHotels);
         recyclerHotels.setLayoutManager(new LinearLayoutManager(this));
 
 
-       String url = Constants.Webserive_Url+ "get_hotels_with_room.php";
+        String url = Constants.Webserive_Url + "get_hotels_with_room.php";
 
-        HashMap<String,String> params = new HashMap<>();
+        HashMap<String, String> params = new HashMap<>();
 
         String city = getIntent().getStringExtra("city");
         if (city != null) {
             params.put("city", city);
-            Volley.CallVolley(url,params,"HotelListActivity");
+            Volley.CallVolley(url, params, "HotelListActivity");
         }
     }
 
@@ -52,7 +52,7 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
 
         try {
 
-            HotelInfoVo hotelInfoVo = new Gson().fromJson(jsonObject.toString(),HotelInfoVo.class);
+            HotelInfoVo hotelInfoVo = new Gson().fromJson(jsonObject.toString(), HotelInfoVo.class);
 
             if (hotelInfoVo != null) {
 
@@ -60,7 +60,7 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
 
                     if (hotelInfoVo.getResult().size() > 0) {
 
-                        HotelListAdapter hotelListAdapter = new HotelListAdapter(HotelListActivity.this,hotelInfoVo.getResult());
+                        HotelListAdapter hotelListAdapter = new HotelListAdapter(HotelListActivity.this, hotelInfoVo.getResult());
                         recyclerHotels.setAdapter(hotelListAdapter);
 
                     }
@@ -71,11 +71,9 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
             }
 
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
 
 
     }

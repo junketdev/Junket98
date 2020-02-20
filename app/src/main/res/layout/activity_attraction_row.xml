@@ -4,7 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_marginRight="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
 
     <ImageView
         android:id="@+id/img_attraction"
@@ -37,7 +39,7 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:text="Wifi, Mini fridge, TV, AC"
-                android:textColor="@color/white"
+                android:textColor="@color/light_white"
                 android:layout_marginBottom="8dp"
                 android:textSize="14sp"/>
 

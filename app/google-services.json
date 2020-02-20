@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "417784025637",
+    "firebase_url": "https://junket-b2c4e.firebaseio.com",
+    "project_id": "junket-b2c4e",
+    "storage_bucket": "junket-b2c4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417784025637:android:87ab4f574772a2f07825cc",
+        "android_client_info": {
+          "package_name": "com.test.junket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417784025637-8h3vu01pki1k21okcc7saddaro1olshh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAPngTfWoC-PZgpaDBnZ7yJOm88sZGzD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417784025637-8h3vu01pki1k21okcc7saddaro1olshh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
