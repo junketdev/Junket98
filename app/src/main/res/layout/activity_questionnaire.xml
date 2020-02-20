@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:background="#232A34"
+    android:background="@color/colorBackground"
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
 
@@ -116,10 +116,8 @@
         android:layout_alignParentBottom="true"
         android:text="Continue"
         android:textSize="18sp"
-        android:background="@drawable/edittext_shape_black"
         android:padding="15dp"
         android:textColor="@color/white"
-        android:layout_marginBottom="16dp"
-        />
+        android:layout_marginBottom="16dp" />
 
 </RelativeLayout>

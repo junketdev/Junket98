@@ -15,8 +15,6 @@ import com.test.junket.Utils.Constants;
 import com.test.junket.adapters.HotelRoomAdapter;
 import com.test.junket.models.HotelResultVo;
 
-import org.w3c.dom.Text;
-
 public class HotelviewActivity extends AppCompatActivity {
     TextView txt_hotelname, txt_hotelcity, txt_hotelrating, txt_hotelprice;
     LinearLayout linear_call, linear_inquiry, linear_location, linear_share, linear_more;
@@ -36,7 +34,7 @@ public class HotelviewActivity extends AppCompatActivity {
         TextView txt_hotelcity = (TextView) findViewById(R.id.txt_hotelcity);
         TextView txt_hotelrating = (TextView) findViewById(R.id.txt_hotelrating);
         TextView txt_hotelprice = (TextView) findViewById(R.id.txt_hotelprice);
-         recvRoomss = (RecyclerView) findViewById(R.id.recvRoomss);
+         recvRoomss = (RecyclerView) findViewById(R.id.recvRooms);
 
         recvRoomss.setLayoutManager(new LinearLayoutManager(this));
 
