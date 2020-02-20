@@ -4,12 +4,9 @@ import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -18,8 +15,6 @@ import com.google.gson.Gson;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
-import com.test.junket.adapters.HotelListAdapter;
-import com.test.junket.models.HotelInfoVo;
 import com.test.junket.models.QuestionListVo;
 import com.test.junket.models.QuestionnaireResultVo;
 
@@ -136,7 +131,7 @@ public class QuestionnaireActivity extends AppCompatActivity implements DataInte
 
         if (count >= questionList.size()) {
 
-            Intent i = new Intent(QuestionnaireActivity.this,Destination_List.class);
+            Intent i = new Intent(QuestionnaireActivity.this, DestinationListActivity.class);
             i.putExtra("tags",sb.toString().replaceAll(",$", ""));
             startActivity(i);
 

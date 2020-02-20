@@ -14,7 +14,7 @@ import com.test.junket.Utils.Webservice_Volley;
 
 import org.json.JSONObject;
 
-public class Reset_password extends AppCompatActivity implements DataInterface {
+public class ResetPasswordActivity extends AppCompatActivity implements DataInterface {
 
     EditText edt_code;
     Button btn_verify;
@@ -48,13 +48,13 @@ public class Reset_password extends AppCompatActivity implements DataInterface {
 
                 if (code.equals(edt_code.getText().toString()))
                 {
-                    Intent i = new Intent(Reset_password.this, Create_new_password.class);
+                    Intent i = new Intent(ResetPasswordActivity.this, CreateNewPasswordActivity.class);
                     i.putExtra("id",id);
                     startActivity(i);
                 }
 
                 else{
-                    Toast.makeText(Reset_password.this, "Invalid verification code", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ResetPasswordActivity.this, "Invalid verification code", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -62,7 +62,7 @@ public class Reset_password extends AppCompatActivity implements DataInterface {
 
     }
     public void clickonverify(View view) {
-        Intent i = new Intent(this, Create_new_password.class);
+        Intent i = new Intent(this, CreateNewPasswordActivity.class);
         startActivity(i);
     }
 

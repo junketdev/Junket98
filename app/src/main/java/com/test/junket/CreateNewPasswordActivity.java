@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Create_new_password extends AppCompatActivity implements DataInterface {
+public class CreateNewPasswordActivity extends AppCompatActivity implements DataInterface {
     EditText edt_newpassword,edt_confirmpassword;
     Button btn_resetmypassword;
     String user_id;

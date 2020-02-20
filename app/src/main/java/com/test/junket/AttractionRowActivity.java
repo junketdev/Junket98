@@ -3,7 +3,7 @@ package com.test.junket;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AttractionRow extends AppCompatActivity {
+public class AttractionRowActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

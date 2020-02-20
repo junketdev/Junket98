@@ -3,7 +3,6 @@ package com.test.junket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -91,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
 
     public void clickOnForgetPassword(View view) {
-        Intent i = new Intent(this,Forgot_password.class);
+        Intent i = new Intent(this, ForgotPasswordActivity.class);
         startActivity(i);
     }
 }

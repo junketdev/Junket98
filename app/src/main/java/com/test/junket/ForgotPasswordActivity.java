@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Forgot_password extends AppCompatActivity implements DataInterface {
+public class ForgotPasswordActivity extends AppCompatActivity implements DataInterface {
 
     EditText verified_email;
     Button btn_submit;
@@ -51,7 +51,7 @@ public class Forgot_password extends AppCompatActivity implements DataInterface 
        });
     }
     public void clickonresetpassword(View view) {
-        Intent i = new Intent(this, Reset_password.class);
+        Intent i = new Intent(this, ResetPasswordActivity.class);
         startActivity(i);
     }
 
@@ -69,7 +69,7 @@ public class Forgot_password extends AppCompatActivity implements DataInterface 
 
                 Log.d("##MY_CODE","==> "+code);
 
-                Intent i = new Intent(this, Reset_password.class);
+                Intent i = new Intent(this, ResetPasswordActivity.class);
                 i.putExtra("code",code);
                 i.putExtra("id",id);
                 startActivity(i);

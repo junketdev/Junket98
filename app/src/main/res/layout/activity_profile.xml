@@ -97,7 +97,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:gravity="bottom"
-
+                    android:id="@+id/profileimg"
                     android:src="@drawable/userimg"
 
                     />
@@ -174,7 +174,7 @@
                 />
 
 
-            <TextView
+            <EditText
                 android:layout_weight="1"
                 android:id="@+id/uname"
                 android:textSize="16dp"
@@ -220,9 +220,9 @@
                 android:gravity="left"/>
 
 
-            <TextView
+            <EditText
                 android:layout_weight="1"
-                android:id="@+id/emai1"
+                android:id="@+id/edt_emai1"
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -264,21 +264,20 @@
                 android:gravity="left"
                 />
 
-            <TextView
-                android:layout_weight="1"
+            <EditText
                 android:id="@+id/pass1"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:inputType="textPassword"
-                android:hint="*********"
-                android:textColor="#181737"
-                android:maxLength="12"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
                 android:gravity="right"
-                />
+                android:hint="*********"
+                android:inputType="textPassword"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColor="#181737"
+                android:textColorHint="#1b193b"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <View
@@ -307,13 +306,18 @@
                 android:gravity="left"
                 />
 
-            <TextView
+            <EditText
                 android:layout_weight="1"
                 android:id="@+id/edt_contactno"
+                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:textColorHint="#181737"
+                android:maxLength="12"
+                android:background="#0000"
                 android:padding="16dp"
-                android:gravity="left"
+                android:gravity="right"
                 />
 
             <!--<ToggleButton-->
@@ -341,7 +345,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/twitter"
+                android:id="@+id/edt_dob"
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -354,13 +358,19 @@
                 />
 
 
-            <TextView
+            <EditText
                 android:layout_weight="1"
-                android:id="@+id/edt_dob"
+                android:id="@+id/dob"
+
+                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:textColorHint="#181737"
+                android:maxLength="12"
+                android:background="#0000"
                 android:padding="16dp"
-                android:gravity="left"
+                android:gravity="right"
                 />
 
 
@@ -392,9 +402,9 @@
                 android:gravity="left"
                 />
 
-            <TextView
+            <EditText
                 android:layout_weight="1"
-                android:id="@+id/rg_gender"
+                android:id="@+id/edt_gender"
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -410,6 +420,21 @@
 
 
 
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_shape"
+            android:textAlignment="center"
+            android:drawableTint="@android:color/white"
+            android:paddingRight="20dp"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
 
 

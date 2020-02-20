@@ -13,7 +13,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".AttractionRow">
+        <activity android:name=".AttractionRowActivity">
 
         </activity>
 
@@ -21,7 +21,7 @@
 
         </activity>
 
-        <activity android:name=".Destination_List"/>
+        <activity android:name=".DestinationListActivity"/>
 
         <activity android:name=".CheckoutActivity" />
         <activity
@@ -38,10 +38,10 @@
             android:name=".SplashscreenActivity"/>
         <activity
             android:name=".HotelviewActivity"/>
-        <activity android:name=".Create_new_password" />
-        <activity android:name=".Reset_password" />
+        <activity android:name=".CreateNewPasswordActivity" />
+        <activity android:name=".ResetPasswordActivity" />
         <activity
-            android:name=".Forgot_password" />
+            android:name=".ForgotPasswordActivity" />
         <activity
             android:name=".LoginActivity">
             <intent-filter>

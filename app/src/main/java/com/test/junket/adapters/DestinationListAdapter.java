@@ -11,16 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-import com.test.junket.AttractionActivity;
-import com.test.junket.Destination_List;
-import com.test.junket.HotelListActivity;
 import com.test.junket.HotelSearchActivity;
-import com.test.junket.HotelviewActivity;
 import com.test.junket.R;
 import com.test.junket.models.DestinationResultVo;
-import com.test.junket.models.HotelResultVo;
 
 import java.util.ArrayList;
 import java.util.List;
