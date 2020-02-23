@@ -48,7 +48,7 @@ public class AttractionActivity extends AppCompatActivity implements DataInterfa
 
         Volley = new Webservice_Volley(this, this);
 
-        dest_id = getIntent().getStringExtra("dest_id");
+        dest_id = getIntent().getStringExtra("city");
 
         revAttraction = (RecyclerView)findViewById(R.id.revAttraction);
 
@@ -58,7 +58,7 @@ public class AttractionActivity extends AppCompatActivity implements DataInterfa
         String url = Constants.Webserive_Url + "get_attraction_from_destination.php";
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("dest_id", dest_id);
+        params.put("city", dest_id);
 
         Volley.CallVolley(url, params, "get_attraction_from_destination");
 

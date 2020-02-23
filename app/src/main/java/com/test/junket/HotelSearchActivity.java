@@ -2,39 +2,36 @@ package com.test.junket;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
 import com.test.junket.adapters.AttractionAdapter;
 import com.test.junket.models.AttractionVo;
-
-import org.json.JSONObject;
-
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import org.json.JSONObject;
 
 public class HotelSearchActivity extends AppCompatActivity implements DataInterface {
     Webservice_Volley Volley = null;
 
-    TextView search,dateFrom,dateTo,bedsCount,adultsCount,childrenCount;
+    TextView txt_search, txt_dateFrom, txt_dateTo, txt_bedsCount, txt_adultsCount, txt_childrenCount;
 
-    ImageView bedsMinus,bedsPlus,adultsPlus,adultsMinus,childrenMinus,childrenPlus;
+    ImageView iv_bedsMinus, iv_bedsPlus, iv_adultsPlus, iv_adultsMinus, iv_childrenMinus, iv_childrenPlus;
 
     RecyclerView revAttraction;
 
-    String dest_id;
+    String dest_id, city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +41,7 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
         Volley = new Webservice_Volley(this, this);
 
         dest_id = getIntent().getStringExtra("dest_id");
+        city = getIntent().getStringExtra("city");
 
         HashMap<String, String> params = new HashMap<>();
         params.put("dest_id", dest_id);
@@ -51,90 +49,101 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
         Volley.CallVolley(url, params, "get_attraction_from_destination");
 
-        search = (TextView) findViewById(R.id.btn_search);
-        dateTo = (TextView) findViewById(R.id.textView_dateTo);
-        dateFrom = (TextView) findViewById(R.id.textView_dateFrom);
-        bedsMinus= (ImageView) findViewById(R.id.imageView_bedsMinus);
-        bedsPlus = (ImageView) findViewById(R.id.imageView_bedsPlus);
-        bedsCount = (TextView) findViewById(R.id.textView_bedsCount);
-        adultsPlus = (ImageView) findViewById(R.id.imageView_adultsPlus);
-        adultsMinus = (ImageView) findViewById(R.id.imageView_adultsMinus);
-        adultsCount = (TextView) findViewById(R.id.textView_adultsCount);
-        childrenMinus = (ImageView) findViewById(R.id.imageView_childrenMinus);
-        childrenPlus = (ImageView) findViewById(R.id.imageView_childrenPlus);
-        childrenCount = (TextView) findViewById(R.id.textView_childrenCount);
+        txt_search = (TextView) findViewById(R.id.btn_search);
+        txt_dateTo = (TextView) findViewById(R.id.textView_dateTo);
+        txt_dateFrom = (TextView) findViewById(R.id.textView_dateFrom);
+        iv_bedsMinus = (ImageView) findViewById(R.id.imageView_bedsMinus);
+        iv_bedsPlus = (ImageView) findViewById(R.id.imageView_bedsPlus);
+        txt_bedsCount = (TextView) findViewById(R.id.textView_bedsCount);
+        iv_adultsPlus = (ImageView) findViewById(R.id.imageView_adultsPlus);
+        iv_adultsMinus = (ImageView) findViewById(R.id.imageView_adultsMinus);
+        txt_adultsCount = (TextView) findViewById(R.id.textView_adultsCount);
+        iv_childrenMinus = (ImageView) findViewById(R.id.imageView_childrenMinus);
+        iv_childrenPlus = (ImageView) findViewById(R.id.imageView_childrenPlus);
+        txt_childrenCount = (TextView) findViewById(R.id.textView_childrenCount);
 
         revAttraction = (RecyclerView)findViewById(R.id.revAttraction);
 
         revAttraction.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
 
 
-        search.setOnClickListener(new View.OnClickListener() {
+        txt_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showHotelDetails(v);
+                showHotelList(v);
             }
         });
 
-        dateTo.setOnClickListener(new View.OnClickListener() {
+        txt_dateTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDatePicker(dateTo);
+                showDatePicker(txt_dateTo);
             }
         });
 
-        dateFrom.setOnClickListener(new View.OnClickListener() {
+        txt_dateFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDatePicker(dateFrom);
+                showDatePicker(txt_dateFrom);
             }
         });
 
-        bedsMinus.setOnClickListener(new View.OnClickListener() {
+        iv_bedsMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                decrementer(bedsCount);
+                decrementer(txt_bedsCount);
             }
         });
 
-        bedsPlus.setOnClickListener(new View.OnClickListener() {
+        iv_bedsPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                incrementer(bedsCount);
+                incrementer(txt_bedsCount);
             }
         });
 
-        adultsPlus.setOnClickListener(new View.OnClickListener() {
+        iv_adultsPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                incrementer(adultsCount);
+                incrementer(txt_adultsCount);
             }
         });
 
-        adultsMinus.setOnClickListener(new View.OnClickListener() {
+        iv_adultsMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                decrementer(adultsCount);
+                decrementer(txt_adultsCount);
             }
         });
 
-        childrenMinus.setOnClickListener(new View.OnClickListener() {
+        iv_childrenMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                decrementer(childrenCount);
+                decrementer(txt_childrenCount);
             }
         });
 
-        childrenPlus.setOnClickListener(new View.OnClickListener() {
+        iv_childrenPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                incrementer(childrenCount);
+                incrementer(txt_childrenCount);
             }
         });
     }
 
-    private void showHotelDetails(View v) {
+    private void showHotelList(View v) {
+
+        Date dateFrom = parseDate(txt_dateFrom.getText().toString());
+        Date dateTo = parseDate(txt_dateTo.getText().toString());
+
+        long diff = (long) dateTo.getTime() - dateFrom.getTime();
+        int numOfDays = (int) (diff /  (1000 * 60 * 60 * 24));
+
         Intent i = new Intent(this, HotelListActivity.class);
+        i.putExtra("city", city);
+        i.putExtra("days", "" + numOfDays);
+        i.putExtra("beds", txt_bedsCount.getText().toString());
+
         startActivity(i);
     }
 
@@ -196,4 +205,19 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
         picker.show();
     }
+
+    public Date parseDate(String dateString) {
+        try {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = sdf.parse(dateString);
+            return date;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

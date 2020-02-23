@@ -1,7 +1,6 @@
 package com.test.junket.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,16 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.squareup.picasso.Picasso;
-import com.test.junket.CheckoutActivity;
-import com.test.junket.HotelviewActivity;
 import com.test.junket.R;
-import com.test.junket.models.HotelResultVo;
 import com.test.junket.models.HotelRoomVo;
-
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +18,12 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
 
     Context mContext;
     List<HotelRoomVo> roomVos = new ArrayList<>();
+    HotelRoomListOnClickListener listener;
 
-    public HotelRoomAdapter(Context context, List<HotelRoomVo> roomVoList) {
+    public HotelRoomAdapter(Context context, List<HotelRoomVo> roomVoList, HotelRoomListOnClickListener listener) {
         mContext = context;
         roomVos = roomVoList;
+        this.listener = listener;
     }
 //this is sample
     @NonNull
@@ -43,7 +36,7 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
     }
 //this is sample
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, final int i) {
 
         final HotelRoomVo hotelRoomVo = roomVos.get(i);
 
@@ -59,13 +52,7 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
         viewHolder.btn_bookroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent i = new Intent(mContext, CheckoutActivity.class);
-                mContext.startActivity(i);
-
-
-
-
+            listener.onRoomSelected(i, hotelRoomVo);
             }
         });
 
@@ -94,5 +81,9 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
 
 
         }
+    }
+
+    public interface HotelRoomListOnClickListener {
+        void onRoomSelected(int position, HotelRoomVo data);
     }
  }

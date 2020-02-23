@@ -396,7 +396,7 @@
     </android.support.v4.widget.NestedScrollView>
 
     <TextView
-      android:id="@+id/pay"
+      android:id="@+id/txt_pay"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"

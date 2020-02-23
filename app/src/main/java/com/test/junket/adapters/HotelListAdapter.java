@@ -1,7 +1,6 @@
 package com.test.junket.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,24 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-import com.test.junket.HotelviewActivity;
 import com.test.junket.R;
 import com.test.junket.models.HotelResultVo;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyViewHolder> {
 
     Context mContext;
-        List<HotelResultVo> resultVos = new ArrayList<>();
+    List<HotelResultVo> resultVos = new ArrayList<>();
+    HotelListOnClickListener listener;
 
-    public HotelListAdapter(Context context, List<HotelResultVo> resultVoList) {
+    public HotelListAdapter(Context context, List<HotelResultVo> resultVoList, HotelListOnClickListener listener) {
         mContext = context;
         resultVos = resultVoList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -39,7 +36,7 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final MyViewHolder viewHolder, final int i) {
 
         try {
             final HotelResultVo hotelResultVo = resultVos.get(i);
@@ -54,11 +51,7 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyVi
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Intent i = new Intent(mContext, HotelviewActivity.class);
-                    i.putExtra("data", new Gson().toJson(hotelResultVo));
-                    mContext.startActivity(i);
-
+                    listener.onHotelSelected(i, hotelResultVo);
                 }
             });
         }
@@ -86,5 +79,9 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyVi
 
 
         }
+    }
+
+    public interface HotelListOnClickListener {
+        void onHotelSelected(int position, HotelResultVo data);
     }
  }
