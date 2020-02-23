@@ -23,6 +23,14 @@
 
         <activity android:name=".DestinationListActivity"/>
 
+        <activity android:name=".ProfileActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".CheckoutActivity" />
         <activity
             android:name=".SelectCityActivity"
@@ -44,11 +52,7 @@
             android:name=".ForgotPasswordActivity" />
         <activity
             android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
