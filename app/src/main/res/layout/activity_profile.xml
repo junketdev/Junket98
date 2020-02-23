@@ -93,7 +93,7 @@
 
                 </LinearLayout>
 
-                <ImageView
+                <ImageButton
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:gravity="bottom"
@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:text="Username"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
+
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="left"
@@ -180,10 +180,9 @@
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Jay patel"
+
                 android:textColorHint="#181737"
                 android:textColor="#181737"
-                android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="right"
@@ -221,19 +220,17 @@
 
 
             <EditText
-                android:layout_weight="1"
-                android:id="@+id/edt_emai1"
-                android:textSize="16dp"
+                android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:hint="jay@wolfsoft.ws"
-                android:textColor="#181737"
-                android:maxLength="12"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
                 android:gravity="right"
-                />
+
+                android:padding="16dp"
+                android:textColor="#181737"
+                android:textColorHint="#1b193b"
+                android:textSize="16dp" />
         </LinearLayout>
 
 
@@ -258,22 +255,21 @@
                 android:layout_height="wrap_content"
                 android:text="Password"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="left"
                 />
 
-            <EditText
+            <TextView
                 android:id="@+id/pass1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#0000"
                 android:gravity="right"
-                android:hint="*********"
+
                 android:inputType="textPassword"
-                android:maxLength="12"
+
                 android:padding="16dp"
                 android:textColor="#181737"
                 android:textColorHint="#1b193b"
@@ -300,7 +296,6 @@
                 android:layout_height="wrap_content"
                 android:text="Contact"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="left"
@@ -314,7 +309,6 @@
                 android:layout_height="wrap_content"
 
                 android:textColorHint="#181737"
-                android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="right"
@@ -351,7 +345,6 @@
                 android:layout_height="wrap_content"
                 android:text="Date of Birth"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="left"
@@ -402,7 +395,7 @@
                 android:gravity="left"
                 />
 
-            <EditText
+            <TextView
                 android:layout_weight="1"
                 android:id="@+id/edt_gender"
                 android:textSize="16dp"
@@ -410,7 +403,6 @@
                 android:layout_height="wrap_content"
 
                 android:textColorHint="#181737"
-                android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="right"

@@ -7,12 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.test.junket.Utils.CommonFunctions;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
+import com.test.junket.adapters.AttractionAdapter;
+import com.test.junket.models.AttractionVo;
+import com.test.junket.models.ProfileVo;
 
 import org.json.JSONObject;
 
@@ -21,10 +26,10 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity implements DataInterface {
 
-    EditText uname,edt_email,pass1,edt_contactno,dob,edt_gender;
+    EditText uname,edt_email,edt_contactno,dob;
     Button btn_save;
     Calendar calendar;
-
+TextView pass1,edt_gender;
     Webservice_Volley Volley = null;
 
 
@@ -39,8 +44,8 @@ public class ProfileActivity extends AppCompatActivity implements DataInterface 
         edt_email=(EditText)findViewById(R.id.edt_email);
         edt_contactno=(EditText)findViewById(R.id.edt_contactno);
         dob=(EditText)findViewById(R.id.dob);
-        pass1=(EditText)findViewById(R.id.pass1);
-        edt_gender=(EditText)findViewById(R.id.edt_gender) ;
+        pass1=(TextView)findViewById(R.id.pass1);
+        edt_gender=(TextView)findViewById(R.id.edt_gender) ;
 
         btn_save = (Button)findViewById(R.id.btn_save);
         Volley = new Webservice_Volley(this,this);
@@ -70,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity implements DataInterface 
 
             }
         });
+
 
 
 
@@ -110,12 +116,11 @@ public class ProfileActivity extends AppCompatActivity implements DataInterface 
                 HashMap<String,String> params = new HashMap<>();
 
                 params.put("user_name",uname.getText().toString());
-                params.put("email",edt_email.getText().toString());
                 params.put("contact_no",edt_contactno.getText().toString());
                 params.put("dob",dob.getText().toString());
                 params.put("gender",edt_gender.getText().toString());
                 params.put("profile_pic","");
-                params.put("user_password",pass1.getText().toString());
+                params.put("user_id","3");
 
                 Volley.CallVolley(url,params,"edit_profile");
             }
@@ -123,11 +128,32 @@ public class ProfileActivity extends AppCompatActivity implements DataInterface 
 
     }
 
-    public void clickonback(View view) {finish();
-    }
-
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
+        try {
+
+            Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
+            ProfileVo profileVo = new Gson().fromJson(jsonObject.toString(),ProfileVo.class);
+
+            if (profileVo != null) {
+                if (profileVo.getResult() != null) {
+                    if (profileVo.getResult().size() > 0) {
+
+                        edt_email.setText(profileVo.getResult().get(0).getEmail());
+                        uname.setText(profileVo.getResult().get(0).getUserName());
+                        pass1.setText(profileVo.getResult().get(0).getUserPassword());
+                        edt_contactno.setText(profileVo.getResult().get(0).getContactNo());
+                        dob.setText(profileVo.getResult().get(0).getDob());
+                        edt_gender.setText(profileVo.getResult().get(0).getGender());
+
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
