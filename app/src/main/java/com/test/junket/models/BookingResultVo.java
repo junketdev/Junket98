@@ -13,6 +13,7 @@ public class BookingResultVo {
     @SerializedName("room_id")
     @Expose
     private String roomId;
+
     @SerializedName("user_id")
     @Expose
     private String userId;
