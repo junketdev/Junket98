@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.test.junket">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,53 +15,31 @@
         android:theme="@style/AppTheme.Fullscreen"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-
-        <activity android:name=".AttractionRowActivity">
-
-        </activity>
-
-        <activity android:name=".AttractionActivity">
-
-        </activity>
-
-        <activity android:name=".DestinationListActivity"/>
-
-        <activity android:name=".ProfileActivity">
-        </activity>
-
+        <activity android:name=".AttractionRowActivity"></activity>
+        <activity android:name=".AttractionActivity"></activity>
+        <activity android:name=".DestinationListActivity" />
+        <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".CheckoutActivity" />
         <activity
             android:name=".SelectCityActivity"
             android:label="@string/title_activity_select_city"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".QuestionnaireActivity" />
-        <activity android:name=".HotelListActivity">
-
-        </activity>
-        <activity
-            android:name=".HotelSearchActivity" />
-        <activity
-            android:name=".SplashscreenActivity"/>
-        <activity
-            android:name=".HotelviewActivity"/>
+        <activity android:name=".HotelListActivity"></activity>
+        <activity android:name=".HotelSearchActivity" />
+        <activity android:name=".SplashscreenActivity" />
+        <activity android:name=".HotelviewActivity" />
         <activity android:name=".CreateNewPasswordActivity" />
         <activity android:name=".ResetPasswordActivity" />
-        <activity
-            android:name=".ForgotPasswordActivity" />
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".SignupActivity" />
+        <activity android:name=".SignupActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

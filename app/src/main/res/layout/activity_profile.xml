@@ -148,75 +148,68 @@
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/username"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:padding="16dp"
+
                 android:text="Username"
                 android:textColor="#a2a1b8"
-
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
+                android:textSize="16dp" />
 
 
             <EditText
-                android:layout_weight="1"
                 android:id="@+id/uname"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:textColorHint="#181737"
-                android:textColor="#181737"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
+
                 android:gravity="right"
-                />
+                android:padding="16dp"
+                android:textColor="#181737"
+                android:textColorHint="#181737"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-
+            android:background="#dad8d8" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
+            android:orientation="horizontal">
 
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/email"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:maxLength="12"
+                android:padding="16dp"
                 android:text="Email"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"/>
+                android:textSize="16dp" />
 
 
             <EditText
@@ -234,31 +227,23 @@
         </LinearLayout>
 
 
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/password"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:padding="16dp"
                 android:text="Password"
                 android:textColor="#a2a1b8"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/pass1"
@@ -279,40 +264,37 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dad8d8"/>
+            android:background="#dad8d8" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/facebook"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:padding="16dp"
                 android:text="Contact"
                 android:textColor="#a2a1b8"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
+                android:textSize="16dp" />
 
             <EditText
-                android:layout_weight="1"
                 android:id="@+id/edt_contactno"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:textColorHint="#181737"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
+
                 android:gravity="right"
-                />
+                android:padding="16dp"
+                android:textColorHint="#181737"
+                android:textSize="16dp" />
 
             <!--<ToggleButton-->
             <!--android:id="@+id/ToggleButton1"-->
@@ -328,43 +310,40 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dad8d8"/>
+            android:background="#dad8d8" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/edt_dob"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:padding="16dp"
                 android:text="Date of Birth"
                 android:textColor="#a2a1b8"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
+                android:textSize="16dp" />
 
 
             <EditText
-                android:layout_weight="1"
                 android:id="@+id/dob"
-
-                android:textSize="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
 
-                android:textColorHint="#181737"
-                android:maxLength="12"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
+
                 android:gravity="right"
-                />
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColorHint="#181737"
+                android:textSize="16dp" />
 
 
         </LinearLayout>
@@ -378,38 +357,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/google"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="left"
+                android:maxLength="12"
+                android:padding="16dp"
                 android:text="Gender"
                 android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
+                android:textSize="16dp" />
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/edt_gender"
-                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:textColorHint="#181737"
+                android:layout_weight="1"
                 android:background="#0000"
-                android:padding="16dp"
+
                 android:gravity="right"
-                />
+                android:padding="16dp"
+                android:textColorHint="#181737"
+                android:textSize="16dp" />
         </LinearLayout>
-
-
 
 
         <Button
@@ -419,15 +393,14 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_shape"
-            android:textAlignment="center"
             android:drawableTint="@android:color/white"
-            android:paddingRight="20dp"
             android:gravity="left|center_vertical"
             android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:text="Save"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-
 
 
     </LinearLayout>

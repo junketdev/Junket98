@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+
+    >
+
+
+
+        <TextView
+            android:layout_weight=""
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/username"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:background="@drawable/edittext_shape_black"
+            tools:text="NAME"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:gravity="center"
+
+            />
+
+
+
+        <TextView
+            android:layout_weight=""
+            android:layout_marginTop="10dp"
+            android:id="@+id/hotel_name"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_shape_black"
+            tools:text="Hotel Name"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:gravity="left"
+            />
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/hotelimg"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
+            android:Gravity="left"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/hotel3" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+            <TextView
+
+                android:id="@+id/room_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:gravity="center"
+
+                android:padding="8dp"
+                android:background="@drawable/edittext_shape_black"
+                tools:text="Room Name"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+            <TextView
+                android:id="@+id/rooms_per_days"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_shape_black"
+                tools:text="2 Rooms 2 night"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="8dp"
+                android:hint="2 Rooms 2 Night"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        </LinearLayout>
+    <TextView
+        android:layout_weight=""
+        android:id="@+id/dest_name"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_shape_black"
+        tools:text="Destination"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+
+            <TextView
+                android:id="@+id/checkin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/edittext_shape_black"
+                tools:text="Check In"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+
+            <TextView
+                android:id="@+id/checkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="@drawable/edittext_shape_black"
+                tools:text="Check Out"
+                android:textColor="@color/white"
+
+                android:textSize="15dp" />
+        </LinearLayout>
+        <TextView
+            android:layout_weight=""
+            android:id="@+id/pay_amount"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/edittext_shape_black"
+            android:text="Pay Amount"
+            android:textStyle="bold"
+
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            />
+    </LinearLayout>
+</LinearLayout>
