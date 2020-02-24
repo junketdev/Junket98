@@ -8,7 +8,7 @@ import com.test.junket.Utils.Constants;
 import com.test.junket.models.HotelBookingInfo;
 import com.test.junket.models.HotelRoomVo;
 
-public class CheckoutActivity extends AppCompatActivity {
+public class  CheckoutActivity extends AppCompatActivity {
 
     TextView txt_room, txt_roomprice, txt_charge, txt_chargeprice, txt_amount, txt_amountprice;
 
