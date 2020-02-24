@@ -5,23 +5,26 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
 import com.test.junket.adapters.HotelListAdapter;
 import com.test.junket.adapters.HotelListAdapter.HotelListOnClickListener;
+import com.test.junket.models.HotelBookingInfo;
 import com.test.junket.models.HotelInfoVo;
 import com.test.junket.models.HotelResultVo;
-import java.util.HashMap;
+
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class HotelListActivity extends AppCompatActivity implements DataInterface {
 
     Webservice_Volley Volley = null;
 
-    String city, days, beds;
+    HotelBookingInfo bookingInfo;
 
     RecyclerView recyclerHotels;
 
@@ -40,17 +43,11 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
 
         HashMap<String, String> params = new HashMap<>();
 
-        city = getIntent().getStringExtra("city");
-        days = getIntent().getStringExtra("days");
-        beds = getIntent().getStringExtra("beds");
+        String bookingInfoJson = getIntent().hasExtra("booking_info") ? getIntent().getStringExtra("booking_info") : "";
+        bookingInfo = new Gson().fromJson(bookingInfoJson, HotelBookingInfo.class);
 
-        if (city != null) {
-            params.put("city", city);
-            Volley.CallVolley(url, params, "HotelListActivity");
-        } else {
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
-            finish();
-        }
+        params.put("city", bookingInfo.getCity());
+        Volley.CallVolley(url, params, "HotelListActivity");
     }
 
     @Override
@@ -95,10 +92,8 @@ public class HotelListActivity extends AppCompatActivity implements DataInterfac
 
     public void openHotelDetail(HotelResultVo data) {
         Intent i = new Intent(this, HotelviewActivity.class);
-        i.putExtra("hotel_data", new Gson().toJson(data));
-        i.putExtra("city", city);
-        i.putExtra("days", days);
-        i.putExtra("beds", beds);
+        bookingInfo.setHotelInfo(data);
+        i.putExtra("booking_info", new Gson().toJson(bookingInfo));
         startActivity(i);
     }
 }

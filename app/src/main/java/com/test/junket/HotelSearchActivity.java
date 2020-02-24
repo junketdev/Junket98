@@ -10,17 +10,21 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.google.gson.Gson;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
 import com.test.junket.adapters.AttractionAdapter;
 import com.test.junket.models.AttractionVo;
+import com.test.junket.models.HotelBookingInfo;
+
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import org.json.JSONObject;
 
 public class HotelSearchActivity extends AppCompatActivity implements DataInterface {
     Webservice_Volley Volley = null;
@@ -40,8 +44,8 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
         Volley = new Webservice_Volley(this, this);
 
-        dest_id = getIntent().getStringExtra("dest_id");
-        city = getIntent().getStringExtra("city");
+        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
+        city = getIntent().hasExtra("city") ? getIntent().getStringExtra("city") : "";
 
         HashMap<String, String> params = new HashMap<>();
         params.put("dest_id", dest_id);
@@ -132,17 +136,20 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
     }
 
     private void showHotelList(View v) {
-
         Date dateFrom = parseDate(txt_dateFrom.getText().toString());
         Date dateTo = parseDate(txt_dateTo.getText().toString());
 
-        long diff = (long) dateTo.getTime() - dateFrom.getTime();
-        int numOfDays = (int) (diff /  (1000 * 60 * 60 * 24));
-
         Intent i = new Intent(this, HotelListActivity.class);
-        i.putExtra("city", city);
-        i.putExtra("days", "" + numOfDays);
-        i.putExtra("beds", txt_bedsCount.getText().toString());
+        HotelBookingInfo bookingInfo = new HotelBookingInfo(
+                dest_id,
+                dateFrom.getTime(),
+                dateTo.getTime(),
+                Integer.parseInt(txt_bedsCount.getText().toString()),
+                Integer.parseInt(txt_adultsCount.getText().toString()),
+                Integer.parseInt(txt_childrenCount.getText().toString()),
+                city
+        );
+        i.putExtra("booking_info", new Gson().toJson(bookingInfo));
 
         startActivity(i);
     }
