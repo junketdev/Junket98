@@ -12,11 +12,10 @@
 
 
         <TextView
-            android:layout_weight=""
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/username"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -32,10 +31,9 @@
 
 
         <TextView
-            android:layout_weight=""
             android:layout_marginTop="10dp"
             android:id="@+id/hotel_name"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
@@ -66,7 +64,6 @@
             android:layout_height="150dp"
             android:layout_gravity="left|center_vertical"
             android:layout_weight="1"
-            android:Gravity="left"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/hotel3" />
 
@@ -92,7 +89,7 @@
                 android:background="@drawable/edittext_shape_black"
                 tools:text="Room Name"
                 android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
             <TextView
                 android:id="@+id/rooms_per_days"
                 android:layout_marginTop="20dp"
@@ -105,15 +102,14 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:hint="2 Rooms 2 Night"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
         </LinearLayout>
     <TextView
-        android:layout_weight=""
         android:id="@+id/dest_name"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_shape_black"
@@ -172,9 +168,8 @@
                 android:textSize="15dp" />
         </LinearLayout>
         <TextView
-            android:layout_weight=""
             android:id="@+id/pay_amount"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

@@ -89,11 +89,14 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
                 Intent i = new Intent(this,SelectCityActivity.class);
                 startActivity(i);
+
+                finish();
             }
         }
         catch(Exception e)
         {
             Toast.makeText(this, "Login Failed, Try Again !", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
         }
 
     }

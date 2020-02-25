@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.test.junket.Utils.AllSharedPrefernces;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
@@ -37,6 +38,8 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
     String dest_id, city;
 
+    AllSharedPrefernces allSharedPrefernces;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +47,11 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
         Volley = new Webservice_Volley(this, this);
 
-//        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
-//        city = getIntent().hasExtra("city") ? getIntent().getStringExtra("city") : "";
+        allSharedPrefernces = new AllSharedPrefernces(this);
+
+        city = allSharedPrefernces.getSeletedCity();
+
+        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
 
         HashMap<String, String> params = new HashMap<>();
         params.put("city", city);

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.test.junket.HotelSearchActivity;
 import com.test.junket.R;
+import com.test.junket.Utils.AllSharedPrefernces;
 import com.test.junket.models.DestinationResultVo;
 
 import java.util.ArrayList;
@@ -23,10 +24,12 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
 
     Context mContext;
     List<DestinationResultVo> resultVos = new ArrayList<>();
+    AllSharedPrefernces allSharedPrefernces;
 
     public DestinationListAdapter(Context context, List<DestinationResultVo> resultVoList) {
         mContext = context;
         resultVos = resultVoList;
+        allSharedPrefernces = new AllSharedPrefernces(context);
     }
 
     @NonNull
@@ -57,7 +60,7 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), HotelSearchActivity.class);
                 i.putExtra("dest_id", destinationResultVo.getDestId());
-                i.putExtra("city", destinationResultVo.getDestName());
+                allSharedPrefernces.setSeletedCity(destinationResultVo.getDestName());
                 v.getContext().startActivity(i);
             }
         });

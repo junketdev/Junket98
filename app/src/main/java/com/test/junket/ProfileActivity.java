@@ -1,8 +1,8 @@
 package com.test.junket;
 
 import android.app.DatePickerDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -11,12 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.test.junket.Utils.AllSharedPrefernces;
 import com.test.junket.Utils.CommonFunctions;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
-import com.test.junket.adapters.AttractionAdapter;
-import com.test.junket.models.AttractionVo;
 import com.test.junket.models.ProfileVo;
 
 import org.json.JSONObject;
@@ -26,103 +25,102 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity implements DataInterface {
 
-    EditText uname,edt_email,edt_contactno,dob;
+    EditText uname, edt_email, edt_contactno, dob;
     Button btn_save;
     Calendar calendar;
-TextView pass1,edt_gender;
+    TextView pass1, edt_gender;
     Webservice_Volley Volley = null;
 
-
+    AllSharedPrefernces allSharedPrefernces;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        allSharedPrefernces = new AllSharedPrefernces(this);
 
-        uname=(EditText)findViewById(R.id.uname);
-        edt_email=(EditText)findViewById(R.id.edt_email);
-        edt_contactno=(EditText)findViewById(R.id.edt_contactno);
-        dob=(EditText)findViewById(R.id.dob);
-        pass1=(TextView)findViewById(R.id.pass1);
-        edt_gender=(TextView)findViewById(R.id.edt_gender) ;
+        uname = (EditText) findViewById(R.id.uname);
+        edt_email = (EditText) findViewById(R.id.edt_email);
+        edt_contactno = (EditText) findViewById(R.id.edt_contactno);
+        dob = (EditText) findViewById(R.id.dob);
+        pass1 = (TextView) findViewById(R.id.pass1);
+        edt_gender = (TextView) findViewById(R.id.edt_gender);
 
-        btn_save = (Button)findViewById(R.id.btn_save);
-        Volley = new Webservice_Volley(this,this);
-        calendar=Calendar.getInstance();
-
-
-        String url = Constants.Webserive_Url+ "get_profile.php";
-
-        HashMap<String,String> params = new HashMap<>();
-
-        params.put("user_id","3");
+        btn_save = (Button) findViewById(R.id.btn_save);
+        Volley = new Webservice_Volley(this, this);
+        calendar = Calendar.getInstance();
 
 
-        Volley.CallVolley(url,params,"get_profile");
+        String url = Constants.Webserive_Url + "get_profile.php";
+
+        HashMap<String, String> params = new HashMap<>();
+
+        params.put("user_id", allSharedPrefernces.getCustomerNo());
+
+
+        Volley.CallVolley(url, params, "get_profile");
 
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog= new DatePickerDialog(ProfileActivity.this,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ProfileActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                dob.setText(year+"-"+(month+1)+"-"+dayOfMonth);
+                                dob.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
                             }
-                        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+                        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
 
             }
         });
 
 
+        btn_save.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
 
 
-        btn_save.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
-
-
-                if(!CommonFunctions.checkString(uname.getText().toString())){
+                if (!CommonFunctions.checkString(uname.getText().toString())) {
                     uname.setError("Name cannot be empty.");
                     return;
                 }
 
-                if(!CommonFunctions.checkEmail(edt_email.getText().toString())){
+                if (!CommonFunctions.checkEmail(edt_email.getText().toString())) {
                     edt_email.setError("Enter proper email id.");
                     return;
                 }
 
-                if(!CommonFunctions.checkMobileNo(edt_contactno.getText().toString())){
+                if (!CommonFunctions.checkMobileNo(edt_contactno.getText().toString())) {
                     edt_contactno.setError("Enter valid 10 digit phone number.");
                     return;
                 }
 
-                if(!CommonFunctions.checkString(dob.getText().toString())){
+                if (!CommonFunctions.checkString(dob.getText().toString())) {
                     dob.setError("DOB cannot be empty.");
                     return;
                 }
 
 
-                if(!CommonFunctions.checkPassword(pass1.getText().toString())){
+                if (!CommonFunctions.checkPassword(pass1.getText().toString())) {
                     pass1.setError("Password must be 6 char. long.");
                     return;
                 }
 
 
-                String url = Constants.Webserive_Url+ "edit_profile.php";
+                String url = Constants.Webserive_Url + "edit_profile.php";
 
-                HashMap<String,String> params = new HashMap<>();
+                HashMap<String, String> params = new HashMap<>();
 
-                params.put("user_name",uname.getText().toString());
-                params.put("contact_no",edt_contactno.getText().toString());
-                params.put("dob",dob.getText().toString());
-                params.put("gender",edt_gender.getText().toString());
-                params.put("profile_pic","");
-                params.put("user_id","3");
+                params.put("user_name", uname.getText().toString());
+                params.put("contact_no", edt_contactno.getText().toString());
+                params.put("dob", dob.getText().toString());
+                params.put("gender", edt_gender.getText().toString());
+                params.put("profile_pic", "");
+                params.put("user_id", "3");
 
-                Volley.CallVolley(url,params,"edit_profile");
+                Volley.CallVolley(url, params, "edit_profile");
             }
         });
 
@@ -135,7 +133,7 @@ TextView pass1,edt_gender;
 
             Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
 
-            ProfileVo profileVo = new Gson().fromJson(jsonObject.toString(),ProfileVo.class);
+            ProfileVo profileVo = new Gson().fromJson(jsonObject.toString(), ProfileVo.class);
 
             if (profileVo != null) {
                 if (profileVo.getResult() != null) {
@@ -151,8 +149,7 @@ TextView pass1,edt_gender;
                     }
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
