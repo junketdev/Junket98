@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.test.junket.Utils.GPSTracker;
@@ -44,8 +43,17 @@ public class SelectCityActivity extends AppCompatActivity implements GPSTracker.
                 startActivity(i);
             }
         });
+
         edt_search = (EditText) findViewById(R.id.edt_search);
+
         list_city = (ListView) findViewById(R.id.list_city);
+
+        list_city.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override

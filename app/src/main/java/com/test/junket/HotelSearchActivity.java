@@ -44,11 +44,11 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
         Volley = new Webservice_Volley(this, this);
 
-        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
-        city = getIntent().hasExtra("city") ? getIntent().getStringExtra("city") : "";
+//        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
+//        city = getIntent().hasExtra("city") ? getIntent().getStringExtra("city") : "";
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("dest_id", dest_id);
+        params.put("city", city);
         String url = Constants.Webserive_Url + "get_attraction_from_destination.php";
 
         Volley.CallVolley(url, params, "get_attraction_from_destination");

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.test.junket.Utils.AllSharedPrefernces;
 import com.test.junket.Utils.CommonFunctions;
 import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
@@ -24,10 +25,14 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
     Webservice_Volley Volley = null;
 
+    AllSharedPrefernces allSharedPrefernces;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        allSharedPrefernces = new AllSharedPrefernces(this);
 
         edt_email = (EditText)findViewById(R.id.edt_email);
         edt_password = (EditText)findViewById(R.id.edt_password);
@@ -77,6 +82,11 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 //        Log.d("Login", jsonObject.toString());
         try{
             if(jsonObject.getInt("response") == 1) {
+
+                allSharedPrefernces.setUserLogin(true);
+                allSharedPrefernces.setCustomerNo(jsonObject.getString("id"));
+                allSharedPrefernces.setCustomerData(jsonObject.getJSONObject("data").toString());
+
                 Intent i = new Intent(this,SelectCityActivity.class);
                 startActivity(i);
             }
