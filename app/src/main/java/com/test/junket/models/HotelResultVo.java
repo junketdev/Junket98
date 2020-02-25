@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class HotelResultVo {
-    @SerializedName("hotelier_id")
+    @SerializedName("hotel_id")
     @Expose
     private String hotelierId;
     @SerializedName("hotelier_name")

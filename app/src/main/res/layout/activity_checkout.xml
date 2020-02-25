@@ -214,7 +214,7 @@
 
 
             <TextView
-                android:id="@+id/btn_search"
+                android:id="@+id/txt_pay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
@@ -224,7 +224,7 @@
                 android:text="Pay"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
 

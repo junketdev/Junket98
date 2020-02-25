@@ -3,6 +3,8 @@ package com.test.junket.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class HotelBookingInfo {
     @SerializedName("dest_id")
     @Expose
@@ -10,11 +12,11 @@ public class HotelBookingInfo {
 
     @SerializedName("dateFrom")
     @Expose
-    long dateFrom;
+    Date dateFrom;
 
     @SerializedName("dateTo")
     @Expose
-    long dateTo;
+    Date dateTo;
 
     @SerializedName("days")
     @Expose
@@ -45,7 +47,7 @@ public class HotelBookingInfo {
     HotelRoomVo roomInfo;
 
 
-    public HotelBookingInfo(String destId, long dateFrom, long dateTo, int beds, int adults, int children, String city) {
+    public HotelBookingInfo(String destId, Date dateFrom, Date dateTo, int beds, int adults, int children, String city) {
         this.destId = destId;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
@@ -63,19 +65,19 @@ public class HotelBookingInfo {
         this.destId = destId;
     }
 
-    public long getDateFrom() {
+    public Date getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(long dateFrom) {
+    public void setDateFrom(Date dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public long getDateTo() {
+    public Date getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(long dateTo) {
+    public void setDateTo(Date dateTo) {
         this.dateTo = dateTo;
     }
 
@@ -87,7 +89,7 @@ public class HotelBookingInfo {
         this.beds = beds;
     }
 
-    public int getAdults() {
+    public Integer getAdults() {
         return adults;
     }
 
@@ -128,7 +130,7 @@ public class HotelBookingInfo {
     }
 
     public int getDays() {
-        long diff = dateTo - dateFrom;
+        long diff = dateTo.getTime() - dateFrom.getTime();
         int numOfDays = (int) (diff /  (1000 * 60 * 60 * 24));
         return numOfDays;
     }

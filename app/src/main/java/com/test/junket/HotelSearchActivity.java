@@ -148,8 +148,8 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
         Intent i = new Intent(this, HotelListActivity.class);
         HotelBookingInfo bookingInfo = new HotelBookingInfo(
                 dest_id,
-                dateFrom.getTime(),
-                dateTo.getTime(),
+                dateFrom,
+                dateTo,
                 Integer.parseInt(txt_bedsCount.getText().toString()),
                 Integer.parseInt(txt_adultsCount.getText().toString()),
                 Integer.parseInt(txt_childrenCount.getText().toString()),
