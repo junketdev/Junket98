@@ -28,7 +28,7 @@
             android:text="JUNKET"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold">
 
         </TextView>
@@ -48,7 +48,6 @@
             android:background="@color/colorBackground"
             android:scaleType="fitXY"
             android:src="@drawable/successful"
-
             />
         <TextView
             android:layout_width="match_parent"
@@ -57,7 +56,7 @@
             android:gravity="center"
             android:paddingTop="0dp"
             android:textColor="@color/white"
-            android:textSize="35dp"
+            android:textSize="35sp"
             android:textStyle="bold"
             >
 
@@ -69,7 +68,7 @@
             android:gravity="center"
             android:paddingTop="30dp"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
            >
 
         </TextView>
@@ -80,7 +79,7 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:textColor="@color/white"
-            android:textSize="32dp"
+            android:textSize="32sp"
             android:textStyle="bold"
             >
 
@@ -90,26 +89,26 @@
             android:layout_height="2dp"
             android:background="#dcdcdc"
             android:layout_marginTop="20dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:text="DATE  TIME "
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             >
+
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:text="Transaction ID:1236488"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             >
         </TextView>
         <TextView
@@ -123,7 +122,6 @@
             android:text="BACK TO HOME"
             android:textAlignment="center"
             android:textColor="#fff"
-
             android:layout_marginTop="80dp"
             android:textSize="16sp" />
     </LinearLayout>
