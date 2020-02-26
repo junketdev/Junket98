@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CheckoutActivity"
+    tools:context=".PaymentConfirmation"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:paddingLeft="24dp"
@@ -40,27 +40,17 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
         <ImageButton
-            android:layout_width="80dp"
-            android:layout_height="110dp"
+            android:layout_width="150dp"
+            android:layout_height="180dp"
             android:gravity="center"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
+            android:layout_marginTop="50dp"
             android:background="@color/colorBackground"
             android:scaleType="fitXY"
             android:src="@drawable/successful"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="RS XXX"
-            android:gravity="center"
-            android:paddingTop="0dp"
-            android:textColor="@color/white"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            >
 
-        </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -73,6 +63,7 @@
 
         </TextView>
         <TextView
+            android:id="@+id/hotel_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Hotel Name"
@@ -93,22 +84,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="DATE  TIME "
+            android:text="Transaction ID:"
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            >
-
-        </TextView>
+            android:textSize="15sp"/>
         <TextView
+            android:id="@+id/trans_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Transaction ID:1236488"
+            android:text="1236488"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="20sp"
+            android:textStyle="italic"
             >
         </TextView>
         <TextView
@@ -123,7 +113,8 @@
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_marginTop="80dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="clickonback"/>
     </LinearLayout>
 
 
