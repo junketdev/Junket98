@@ -105,6 +105,20 @@
             >
         </TextView>
         <TextView
+            android:id="@+id/txt_retry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/rounded1"
+            android:padding="15dp"
+            android:text="RETRY"
+            android:textAlignment="center"
+            android:textColor="#fff"
+
+            android:layout_marginTop="40dp"
+            android:textSize="16sp" />
+        <TextView
             android:id="@+id/txt_backtohome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +130,7 @@
             android:textAlignment="center"
             android:textColor="#fff"
 
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:textSize="16sp" />
     </LinearLayout>
 
