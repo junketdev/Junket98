@@ -15,8 +15,8 @@
         android:theme="@style/AppTheme.Fullscreen"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".PaymentConfirmation"></activity>
-
+        <activity android:name=".PaymentFailed"></activity>
+        <activity android:name=".PaymentConfirmation" />
         <activity android:name=".AttractionRowActivity" />
         <activity android:name=".AttractionActivity" />
         <activity android:name=".DestinationListActivity" />
