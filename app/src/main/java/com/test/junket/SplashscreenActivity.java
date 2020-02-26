@@ -3,6 +3,7 @@ package com.test.junket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import com.test.junket.Utils.AllSharedPrefernces;
 
@@ -23,14 +24,21 @@ public class SplashscreenActivity extends AppCompatActivity {
                     // Thread will sleep for 5 seconds
                     sleep(2*1000);
 
+                    Intent i;
+
                     // After 5 seconds redirect to another intent
                     if (allSharedPrefernces.isUserLogin()) {
-                        Intent i = new Intent(getBaseContext(), SelectCityActivity.class);
-                        startActivity(i);
+                        if (TextUtils.isEmpty(allSharedPrefernces.getSeletedCity())) {
+                            i = new Intent(getBaseContext(), SelectCityActivity.class);
+                        } else {
+                            i = new Intent(getBaseContext(), HotelSearchActivity.class);
+                        }
                     } else {
-                        Intent i = new Intent(getBaseContext(), LoginActivity.class);
-                        startActivity(i);
+                        i = new Intent(getBaseContext(), LoginActivity.class);
                     }
+
+                    // Start activity
+                    startActivity(i);
 
                     //Remove activity
                     finish();
