@@ -185,7 +185,11 @@ public class HotelSearchActivity extends AppCompatActivity
         Boolean result = false;
         switch (menuItem.getItemId()) {
             case R.id.menu_item_my_bookings :
-                Toast.makeText(this, "My bookings", Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(this,MyBookingActivity.class);
+                startActivity(i);
+
+
                 result = true;
                 break;
 
