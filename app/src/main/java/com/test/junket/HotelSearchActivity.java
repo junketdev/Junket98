@@ -3,13 +3,21 @@ package com.test.junket;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.test.junket.Utils.AllSharedPrefernces;
@@ -27,12 +35,25 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-public class HotelSearchActivity extends AppCompatActivity implements DataInterface {
+public class HotelSearchActivity extends AppCompatActivity
+        implements DataInterface, NavigationView.OnNavigationItemSelectedListener {
+
     Webservice_Volley Volley = null;
 
     TextView txt_search, txt_dateFrom, txt_dateTo, txt_bedsCount, txt_adultsCount, txt_childrenCount;
 
+    TextView txt_name;
+    ImageView iv_profileImage;
+
     ImageView iv_bedsMinus, iv_bedsPlus, iv_adultsPlus, iv_adultsMinus, iv_childrenMinus, iv_childrenPlus;
+
+    DrawerLayout drawerLayout;
+
+    NavigationView navigation_view;
+
+    TextView toolbar_location_name;
+
+    Toolbar toolbar_search;
 
     RecyclerView revAttraction;
 
@@ -59,6 +80,21 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
 
         Volley.CallVolley(url, params, "get_attraction_from_destination");
 
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
+        toolbar_search = (Toolbar) findViewById(R.id.toolbar_search);
+
+        setupNavigationDrawer();
+
+        toolbar_location_name = (TextView) findViewById(R.id.toolbar_location_name);
+        toolbar_location_name.setText(allSharedPrefernces.getSeletedCity());
+
+        navigation_view = (NavigationView) findViewById(R.id.navigation_view);
+        View drawerHeader = LayoutInflater.from(this).inflate(R.layout.layout_header_drawer, null, false);
+        navigation_view.addHeaderView(drawerHeader);
+
+        navigation_view.setNavigationItemSelectedListener(this);
+
         txt_search = (TextView) findViewById(R.id.btn_search);
         txt_dateTo = (TextView) findViewById(R.id.textView_dateTo);
         txt_dateFrom = (TextView) findViewById(R.id.textView_dateFrom);
@@ -71,6 +107,9 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
         iv_childrenMinus = (ImageView) findViewById(R.id.imageView_childrenMinus);
         iv_childrenPlus = (ImageView) findViewById(R.id.imageView_childrenPlus);
         txt_childrenCount = (TextView) findViewById(R.id.textView_childrenCount);
+
+        txt_name = (TextView) findViewById(R.id.txt_name);
+        iv_profileImage = (ImageView) findViewById(R.id.iv_profileImage);
 
         revAttraction = (RecyclerView)findViewById(R.id.revAttraction);
 
@@ -137,6 +176,40 @@ public class HotelSearchActivity extends AppCompatActivity implements DataInterf
             @Override
             public void onClick(View v) {
                 incrementer(txt_childrenCount);
+            }
+        });
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Boolean result = false;
+        switch (menuItem.getItemId()) {
+            case R.id.menu_item_my_bookings :
+                Toast.makeText(this, "My bookings", Toast.LENGTH_LONG).show();
+                result = true;
+                break;
+
+            case R.id.menu_item_profile :
+                Toast.makeText(this, "Profile", Toast.LENGTH_LONG).show();
+                result = true;
+                break;
+
+            case R.id.menu_item_logout :
+                Toast.makeText(this, "Logout", Toast.LENGTH_LONG).show();
+                result = true;
+                break;
+        }
+        return result;
+    }
+
+    private void setupNavigationDrawer() {
+        toolbar_search.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START))
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                else
+                    drawerLayout.openDrawer(GravityCompat.START);
             }
         });
     }
