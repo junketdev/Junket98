@@ -11,31 +11,31 @@
         android:id="@+id/toolbar_search"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:title="Your Location"
-        app:navigationIcon="@drawable/ic_menu">
+        app:navigationIcon="@drawable/ic_menu"
+        app:title="Your Location">
 
         <LinearLayout
             android:id="@+id/layout_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:text="Your Location"
                 android:textColor="@color/white"
-                android:text="Your Location"/>
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/toolbar_location_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                tools:text="Vadodara"/>
+                tools:text="Vadodara" />
 
         </LinearLayout>
 

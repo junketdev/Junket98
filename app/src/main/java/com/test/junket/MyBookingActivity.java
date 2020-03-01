@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.google.gson.Gson;
 import com.test.junket.Utils.AllSharedPrefernces;
@@ -29,6 +31,7 @@ public class MyBookingActivity extends BaseActivity implements DataInterface {
 
     AllSharedPrefernces allSharedPrefernces;
     RecyclerView recyclerBookings;
+    Toolbar toolbar_myBooking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +43,14 @@ public class MyBookingActivity extends BaseActivity implements DataInterface {
         recyclerBookings = (RecyclerView) findViewById(R.id.recyclerBookings);
         recyclerBookings.setLayoutManager(new LinearLayoutManager(this));
         allSharedPrefernces = new AllSharedPrefernces(this);
+        toolbar_myBooking =(Toolbar) findViewById(R.id.toolbar_myBooking);
 
-
+        toolbar_myBooking.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         String url = Constants.Webserive_Url + "get_booking.php";
 
         HashMap<String, String> params = new HashMap<>();
