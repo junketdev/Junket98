@@ -234,6 +234,13 @@ public class HotelSearchActivity extends BaseActivity
         );
         i.putExtra("booking_info", new Gson().toJson(bookingInfo));
 
+        String toSpeak = "Searching hotels from " +
+                txt_dateFrom.getText().toString() +
+                " to " +
+                txt_dateTo.getText().toString();
+
+        assistance.speak(toSpeak);
+
         startActivity(i);
     }
 

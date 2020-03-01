@@ -61,6 +61,8 @@
                     android:layout_height="wrap_content"
                     android:text="Hotel 6"
                     android:textSize="16dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:padding="15dp"
                     android:background="#9000"
                     android:textColor="#fff"/>

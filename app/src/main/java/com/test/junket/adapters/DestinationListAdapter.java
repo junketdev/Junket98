@@ -51,7 +51,9 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
 
         if (!TextUtils.isEmpty(destinationResultVo.getImages())) {
 
-            Picasso.get().load(destinationResultVo.getImages()).into(viewHolder.img_destination);
+            String image = destinationResultVo.getImages().split(",")[0];
+            if (!TextUtils.isEmpty(image))
+                Picasso.get().load(image).resize(200,200).into(viewHolder.img_destination);
         }
 
 

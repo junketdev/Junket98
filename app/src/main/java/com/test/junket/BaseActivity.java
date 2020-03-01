@@ -12,8 +12,8 @@ abstract class BaseActivity extends AppCompatActivity {
     protected Assistance assistance;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         assistance = new Assistance(getApplicationContext());
     }
 }
