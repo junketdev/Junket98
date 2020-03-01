@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class  CheckoutActivity extends AppCompatActivity implements DataInterface {
+public class  CheckoutActivity extends BaseActivity implements DataInterface {
 
     TextView txt_room, txt_roomprice, txt_charge, txt_chargeprice, txt_amount, txt_amountprice,txt_pay;
     EditText edt_name,edt_email,edt_contactno;

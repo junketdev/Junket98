@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class AttractionActivity extends AppCompatActivity implements DataInterface {
+public class AttractionActivity extends BaseActivity implements DataInterface {
 
     Webservice_Volley Volley = null;
 

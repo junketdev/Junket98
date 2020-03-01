@@ -7,7 +7,7 @@ import android.text.TextUtils;
 
 import com.test.junket.Utils.AllSharedPrefernces;
 
-public class SplashscreenActivity extends AppCompatActivity {
+public class SplashscreenActivity extends BaseActivity {
 
     AllSharedPrefernces allSharedPrefernces;
 

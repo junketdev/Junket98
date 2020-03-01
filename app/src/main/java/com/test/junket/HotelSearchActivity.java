@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-public class HotelSearchActivity extends AppCompatActivity
+public class HotelSearchActivity extends BaseActivity
         implements DataInterface, NavigationView.OnNavigationItemSelectedListener {
 
     Webservice_Volley Volley = null;

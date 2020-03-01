@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class SignupActivity extends AppCompatActivity implements DataInterface {
+public class SignupActivity extends BaseActivity implements DataInterface {
 
     EditText edt_name, edt_email, edt_contactno,edt_dob,edt_password,edt_confirmpassword;
     Button btn_signup;

@@ -3,7 +3,7 @@ package com.test.junket;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InquiryActivity extends AppCompatActivity {
+public class InquiryActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,7 +14,7 @@ import com.test.junket.Utils.Webservice_Volley;
 
 import org.json.JSONObject;
 
-public class ResetPasswordActivity extends AppCompatActivity implements DataInterface {
+public class ResetPasswordActivity extends BaseActivity implements DataInterface {
 
     EditText edt_code;
     Button btn_verify;

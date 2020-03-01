@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class ProfileActivity extends AppCompatActivity implements DataInterface {
+public class ProfileActivity extends BaseActivity implements DataInterface {
 
     EditText uname, edt_email, edt_contactno, dob;
     Button btn_save;

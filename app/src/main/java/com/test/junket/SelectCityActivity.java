@@ -18,7 +18,7 @@ import com.test.junket.Utils.GPSTracker;
 import java.util.List;
 import java.util.Locale;
 
-public class SelectCityActivity extends AppCompatActivity implements GPSTracker.GetLocationUpdateListener {
+public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLocationUpdateListener {
 
     LinearLayout linear_detectmylocation, linear_myinterest;
     EditText edt_search;

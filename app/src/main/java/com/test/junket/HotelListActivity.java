@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class HotelListActivity extends AppCompatActivity implements DataInterface {
+public class HotelListActivity extends BaseActivity implements DataInterface {
 
     Webservice_Volley Volley = null;
 

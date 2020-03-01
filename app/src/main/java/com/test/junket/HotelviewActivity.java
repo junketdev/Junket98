@@ -18,7 +18,7 @@ import com.test.junket.models.HotelBookingInfo;
 import com.test.junket.models.HotelResultVo;
 import com.test.junket.models.HotelRoomVo;
 
-public class HotelviewActivity extends AppCompatActivity {
+public class HotelviewActivity extends BaseActivity {
     TextView txt_hotelname, txt_hotelcity, txt_hotelrating, txt_hotelprice;
     LinearLayout linear_call, linear_inquiry, linear_location, linear_share, linear_more;
     ImageView img_hotel;

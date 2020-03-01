@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class PaymentConfirmation extends AppCompatActivity {
+public class PaymentConfirmation extends BaseActivity {
     TextView hotel_name,trans_id;
 
     @Override

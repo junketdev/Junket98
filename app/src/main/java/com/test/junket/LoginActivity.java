@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class LoginActivity extends AppCompatActivity implements DataInterface {
+public class LoginActivity extends BaseActivity implements DataInterface {
 
     EditText edt_email,edt_password;
     Button btn_login;

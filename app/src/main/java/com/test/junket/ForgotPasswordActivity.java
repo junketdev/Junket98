@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class ForgotPasswordActivity extends AppCompatActivity implements DataInterface {
+public class ForgotPasswordActivity extends BaseActivity implements DataInterface {
 
     EditText verified_email;
     Button btn_submit;

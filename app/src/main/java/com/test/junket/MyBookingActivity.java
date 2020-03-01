@@ -23,7 +23,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class MyBookingActivity extends AppCompatActivity implements DataInterface {
+public class MyBookingActivity extends BaseActivity implements DataInterface {
 
     Webservice_Volley Volley = null;
 
