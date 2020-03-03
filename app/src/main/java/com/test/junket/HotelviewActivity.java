@@ -90,7 +90,12 @@ public class HotelviewActivity extends BaseActivity {
         bookingInfo.setRoomInfo(data);
         i.putExtra("booking_info", new Gson().toJson(bookingInfo));
 
-
+        //Voice Assistant module
+        String toSpeak = "Booking " +
+                data.getRoomType()
+                + " size Room of "
+                +  txt_hotelname.getText().toString();
+        assistance.speak(toSpeak);
 
         startActivity(i);
     }

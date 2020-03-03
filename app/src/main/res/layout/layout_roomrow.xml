@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorBackground"
     android:orientation="vertical"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="24dp">
 
     <ImageView
         android:id="@+id/img_roompic"
@@ -69,7 +69,10 @@
                 android:id="@+id/btn_bookroom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Book" />
+                android:background="@drawable/rect1"
+                android:text="Book"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
 
         </LinearLayout>
     </LinearLayout>

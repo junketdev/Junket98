@@ -79,6 +79,10 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //Voice Assistant module
+                        String toSpeak = "Generating your Bill "
+                                + edt_name.getText().toString();
+                        assistance.speak(toSpeak);
 
                         initPayUMoney();
 

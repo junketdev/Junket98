@@ -379,6 +379,16 @@
             android:layout_marginRight="16dp"
             android:background="@color/divider" />
 
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Rooms"
+              android:textColor="@color/white"
+              android:textSize="24sp"
+              android:textStyle="bold"
+              android:layout_marginTop="16dp"
+              android:layout_marginLeft="16dp"/>
+
           <android.support.v7.widget.RecyclerView
             android:id="@+id/recvRooms"
             android:layout_width="match_parent"

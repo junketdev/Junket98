@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 import com.test.junket.R;
 import com.test.junket.models.HotelRoomVo;
 import java.util.ArrayList;
@@ -46,7 +48,9 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
         viewHolder.txt_roomprice.setText(hotelRoomVo.getRoomPrice() + "/Night");
         //viewHolder.btn_bookroom.setText(hotelRoomVo.getRoomDescription());
 
-//        Picasso.get().load(hotelRoomVo.getRoomImages()).into(viewHolder.img_roompic);
+        Picasso.get().load(hotelRoomVo.getImg1()).into(viewHolder.img_roompic);
+       /* Picasso.get().load(hotelRoomVo.getImg2()).into(viewHolder.img_roompic);
+        Picasso.get().load(hotelRoomVo.getImg3()).into(viewHolder.img_roompic);*/
 
 
         viewHolder.btn_bookroom.setOnClickListener(new View.OnClickListener() {

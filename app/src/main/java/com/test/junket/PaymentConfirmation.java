@@ -27,6 +27,12 @@ public class PaymentConfirmation extends BaseActivity {
 
     public void clickonback(View view) {
         Intent i = new Intent(this,HotelSearchActivity.class);
+
+        //Voice Assistant module
+        String toSpeak = "Payment Successful";
+
+        assistance.speak(toSpeak);
+
         startActivity(i);
 
         finishAffinity();
