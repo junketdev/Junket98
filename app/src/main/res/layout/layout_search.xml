@@ -15,10 +15,29 @@
         android:clipToPadding="false"
         tools:context=".HotelSearchActivity">
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/bg1"/>
+            android:layout_height="150dp">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+
+            <com.pixelcan.inkpageindicator.InkPageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ipi_dotDiameter="8dp"
+                app:ipi_dotGap="8dp"
+                android:layout_alignParentBottom="true"
+                android:padding="8dp"
+                app:ipi_animationDuration="320"
+                app:ipi_pageIndicatorColor="@android:color/darker_gray"
+                app:ipi_currentPageIndicatorColor="@android:color/black"/>
+
+        </RelativeLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"

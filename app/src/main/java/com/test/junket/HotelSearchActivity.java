@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ import com.test.junket.Utils.Constants;
 import com.test.junket.Utils.DataInterface;
 import com.test.junket.Utils.Webservice_Volley;
 import com.test.junket.adapters.AttractionAdapter;
+import com.test.junket.adapters.CustomPagerAdapter;
 import com.test.junket.models.AttractionVo;
 import com.test.junket.models.HotelBookingInfo;
 
@@ -59,6 +61,8 @@ public class HotelSearchActivity extends BaseActivity
 
     String dest_id, city;
 
+    ViewPager viewPager;
+
     AllSharedPrefernces allSharedPrefernces;
 
     @Override
@@ -66,13 +70,15 @@ public class HotelSearchActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_search);
 
+
+
         Volley = new Webservice_Volley(this, this);
 
         allSharedPrefernces = new AllSharedPrefernces(this);
 
         city = allSharedPrefernces.getSeletedCity();
 
-        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
+//        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
 
         HashMap<String, String> params = new HashMap<>();
         params.put("city", city);
@@ -88,6 +94,11 @@ public class HotelSearchActivity extends BaseActivity
 
         toolbar_location_name = (TextView) findViewById(R.id.toolbar_location_name);
         toolbar_location_name.setText(allSharedPrefernces.getSeletedCity());
+
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+
+        CustomPagerAdapter adapter = new CustomPagerAdapter(this);
+        viewPager.setAdapter(adapter);
 
         navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         View drawerHeader = LayoutInflater.from(this).inflate(R.layout.layout_header_drawer, null, false);
@@ -234,6 +245,7 @@ public class HotelSearchActivity extends BaseActivity
         );
         i.putExtra("booking_info", new Gson().toJson(bookingInfo));
 
+        //Voice Assistant module
         String toSpeak = "Searching hotels from " +
                 txt_dateFrom.getText().toString() +
                 " to " +

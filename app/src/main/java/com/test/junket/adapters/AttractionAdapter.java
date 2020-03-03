@@ -55,7 +55,7 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
             Picasso.get().load(attractionResultVo.getAttractionImages()).into(viewHolder.img_attraction);
 
 
-            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            /*viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // OPEN ATTRACTION DETAIL PAGE !!
@@ -66,7 +66,7 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
 
                 }
             });
-        }
+*/        }
         catch (Exception e) {e.printStackTrace();}
 
     }

@@ -89,6 +89,9 @@ public class HotelviewActivity extends BaseActivity {
         Intent i = new Intent(this, CheckoutActivity.class);
         bookingInfo.setRoomInfo(data);
         i.putExtra("booking_info", new Gson().toJson(bookingInfo));
+
+
+
         startActivity(i);
     }
 }

@@ -67,6 +67,13 @@ public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLo
         String city = getCity(location.getLatitude(), location.getLongitude());
         AllSharedPrefernces allSharedPrefernces = new AllSharedPrefernces(this);
         allSharedPrefernces.setSeletedCity(city);
+
+        Intent i = new Intent(this, HotelSearchActivity.class);
+        startActivity(i);
+
+        finish();
+
+
     }
 
     public String getCity(double latitude, double longitude) {

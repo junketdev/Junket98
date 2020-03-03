@@ -61,7 +61,7 @@ public class DestinationListAdapter extends RecyclerView.Adapter<DestinationList
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), HotelSearchActivity.class);
-                i.putExtra("dest_id", destinationResultVo.getDestId());
+//                i.putExtra("dest_id", destinationResultVo.getDestId());
                 allSharedPrefernces.setSeletedCity(destinationResultVo.getDestName());
                 v.getContext().startActivity(i);
             }
