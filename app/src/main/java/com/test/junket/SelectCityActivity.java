@@ -109,8 +109,6 @@ public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLo
         startActivity(i);
 
         finish();
-
-
     }
 
     public String getCity(double latitude, double longitude) {
