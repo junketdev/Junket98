@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import com.test.junket.AttractionDescription;
 import com.test.junket.HotelSearchActivity;
 import com.test.junket.HotelviewActivity;
 import com.test.junket.R;
@@ -60,7 +61,7 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
                 public void onClick(View v) {
                     // OPEN ATTRACTION DETAIL PAGE !!
 
-                    Intent i = new Intent(mContext, HotelSearchActivity.class);
+                    Intent i = new Intent(mContext, AttractionDescription.class);
                     i.putExtra("data", new Gson().toJson(attractionResultVo));
                     mContext.startActivity(i);
 

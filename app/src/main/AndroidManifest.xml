@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme.Fullscreen"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".MyBookingActivity"></activity>
+        <activity android:name=".AttractionDescription"></activity>
+        <activity android:name=".MyBookingActivity" />
         <activity android:name=".PaymentFailed" />
         <activity android:name=".PaymentConfirmation" />
         <activity android:name=".AttractionRowActivity" />
