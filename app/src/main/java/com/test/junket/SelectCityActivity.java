@@ -5,9 +5,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -15,6 +17,13 @@ import android.widget.ListView;
 import com.test.junket.Utils.AllSharedPrefernces;
 import com.test.junket.Utils.GPSTracker;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,11 +34,15 @@ public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLo
     ListView list_city;
     GPSTracker gpsTracker;
 
+    AllSharedPrefernces allSharedPrefernces;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_city);
+
+        allSharedPrefernces = new AllSharedPrefernces(this);
 
         linear_detectmylocation = (LinearLayout) findViewById(R.id.linear_detectmylocation);
 
@@ -54,18 +67,43 @@ public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLo
 
         list_city = (ListView) findViewById(R.id.list_city);
 
+        final ArrayAdapter<String> citiesAdapter = new ArrayAdapter<>(
+                this, R.layout.simple_list_item_1_white, loadCitiesFromAsset()
+        );
+        list_city.setAdapter(citiesAdapter);
+
         list_city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedCity = parent.getItemAtPosition(position).toString();
+                allSharedPrefernces.setSeletedCity(selectedCity);
 
+                Intent i = new Intent(SelectCityActivity.this, HotelSearchActivity.class);
+                startActivity(i);
+
+                finish();
             }
+        });
+
+        edt_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (citiesAdapter != null) {
+                    citiesAdapter.getFilter().filter(s.toString());
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
         });
     }
 
     @Override
     public void getUpdatedLocation(Location location) {
         String city = getCity(location.getLatitude(), location.getLongitude());
-        AllSharedPrefernces allSharedPrefernces = new AllSharedPrefernces(this);
         allSharedPrefernces.setSeletedCity(city);
 
         Intent i = new Intent(this, HotelSearchActivity.class);
@@ -98,5 +136,25 @@ public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLo
             e.printStackTrace();
             return "";
         }
+    }
+
+    public List<String> loadCitiesFromAsset() {
+        ArrayList<String> cities = new ArrayList<>();
+        try {
+            InputStream is = getBaseContext().getAssets().open("cities.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            String jsonCities = new String(buffer, "UTF-8");
+            JSONObject jsonObject = new JSONObject(jsonCities);
+            JSONArray jArray = jsonObject.getJSONArray("cities");
+            for (int i = 0; i< jArray.length(); i++) {
+                cities.add(jArray.getString(i));
+            }
+        } catch (IOException | NullPointerException | JSONException e) {
+            e.printStackTrace();
+        }
+        return cities;
     }
 }
