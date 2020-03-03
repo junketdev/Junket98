@@ -36,7 +36,6 @@ public class SelectCityActivity extends BaseActivity implements GPSTracker.GetLo
 
     AllSharedPrefernces allSharedPrefernces;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
