@@ -68,8 +68,9 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
                 }
             });
         }
-        catch (Exception e) {e.printStackTrace();}
-
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
