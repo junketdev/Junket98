@@ -1,10 +1,12 @@
 package com.test.junket;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,7 +22,7 @@ import com.test.junket.models.HotelRoomVo;
 
 public class HotelviewActivity extends BaseActivity {
     TextView txt_hotelname, txt_hotelcity, txt_hotelrating, txt_hotelprice;
-    LinearLayout linear_call, linear_inquiry, linear_location, linear_share, linear_more;
+    LinearLayout linear_call, linear_inquiry, linear_location, linear_share;
     ImageView img_hotel;
 
     HotelBookingInfo bookingInfo;
@@ -40,10 +42,50 @@ public class HotelviewActivity extends BaseActivity {
         txt_hotelprice = (TextView) findViewById(R.id.txt_hotelprice);
 
         linear_call = (LinearLayout) findViewById(R.id.linear_call);
+        linear_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+ hotelResultVo.getContact()));
+                startActivity(intent);
+            }
+        });
+
         linear_inquiry = (LinearLayout) findViewById(R.id.linear_inquiry);
+        linear_inquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                String[] recipients = {hotelResultVo.getHotelierEmail()}; //Add multiple recipients here
+                intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Inquiry"); //Add Mail Subject
+                intent.setType("text/html");
+                intent.setPackage("com.google.android.gm");//Added Gmail Package to forcefully open Gmail App
+                startActivity(Intent.createChooser(intent, "Send mail"));
+            }
+        });
+
         linear_location = (LinearLayout) findViewById(R.id.linear_location);
+        linear_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri mapUri = Uri.parse("geo:0,0?q=" + Uri.encode(hotelResultVo.getHotelierAddress()));
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
+
         linear_share = (LinearLayout) findViewById(R.id.linear_share);
-        linear_more = (LinearLayout) findViewById(R.id.linear_more);
+        linear_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hey checkout this hotel "+ hotelResultVo.getWebsite());
+                startActivity(intent);
+            }
+        });
 
         recvRoomss = (RecyclerView) findViewById(R.id.recvRooms);
         recvRoomss.setLayoutManager(new LinearLayoutManager(this));

@@ -241,7 +241,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="bottom"
-                android:src="@drawable/phone" />
+                android:src="@drawable/ic_phone_white" />
 
               <TextView
                 android:id="@+id/call"
@@ -269,7 +269,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="bottom"
-                android:src="@drawable/mail" />
+                android:src="@drawable/ic_mail_white" />
 
 
               <TextView
@@ -300,7 +300,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="bottom"
-                android:src="@drawable/location" />
+                android:src="@drawable/ic_location_white" />
 
               <TextView
                 android:id="@+id/location"
@@ -327,7 +327,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="bottom"
-                android:src="@drawable/share" />
+                android:src="@drawable/ic_share_white" />
 
               <TextView
                 android:id="@+id/share"
@@ -341,33 +341,6 @@
                 android:textSize="12sp" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-              android:id="@+id/linear_more"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              android:orientation="vertical">
-
-              <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:src="@drawable/more" />
-
-              <TextView
-                android:id="@+id/more"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="More"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
             </LinearLayout>
 
           </LinearLayout>
