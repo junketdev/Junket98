@@ -157,7 +157,7 @@ public class ProfileActivity extends BaseActivity implements DataInterface {
 
         try {
 
-            Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
 
             ProfileVo profileVo = new Gson().fromJson(jsonObject.toString(), ProfileVo.class);
 

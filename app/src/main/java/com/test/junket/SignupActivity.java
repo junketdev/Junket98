@@ -138,8 +138,11 @@ public class SignupActivity extends BaseActivity implements DataInterface {
     @Override
     public void getData(JSONObject jsonObject, String tag) {
         try {
+
+            Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
             if (jsonObject.getInt("response") == 1) {
-                Intent i = new Intent(this, SignupActivity.class);
+                Intent i = new Intent(this, LoginActivity.class);
 
                 startActivity(i);
                 finish();
@@ -147,7 +150,7 @@ public class SignupActivity extends BaseActivity implements DataInterface {
         }
         catch (Exception e)
         {
-            Toast.makeText(this, "Login Failed, Try Again !", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Signup Failed, Try Again !", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 

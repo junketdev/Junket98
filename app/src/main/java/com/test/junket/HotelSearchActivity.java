@@ -101,6 +101,14 @@ public class HotelSearchActivity extends BaseActivity
         toolbar_location_name = (TextView) findViewById(R.id.toolbar_location_name);
         toolbar_location_name.setText(allSharedPrefernces.getSeletedCity());
 
+        toolbar_location_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HotelSearchActivity.this,SelectCityActivity.class);
+                startActivity(i);
+            }
+        });
+
         viewPager = (ViewPager)findViewById(R.id.viewPager);
 
         CustomPagerAdapter adapter = new CustomPagerAdapter(this);
@@ -109,6 +117,25 @@ public class HotelSearchActivity extends BaseActivity
         navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         View drawerHeader = LayoutInflater.from(this).inflate(R.layout.layout_header_drawer, null, false);
         navigation_view.addHeaderView(drawerHeader);
+
+
+        TextView txt_name = (TextView)drawerHeader.findViewById(R.id.txt_name);
+        ImageView iv_profileImage = (ImageView)drawerHeader.findViewById(R.id.iv_profileImage);
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(allSharedPrefernces.getCustomerData());
+
+            if (jsonObject != null) {
+                txt_name.setText(jsonObject.getString("user_name"));
+            }
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
 
         navigation_view.setNavigationItemSelectedListener(this);
 
@@ -306,7 +333,7 @@ public class HotelSearchActivity extends BaseActivity
 
                     if (attractionVo.getResult().size() > 0) {
 
-                        AttractionAdapter adapter = new AttractionAdapter(this,attractionVo.getResult());
+                        AttractionAdapter adapter = new AttractionAdapter(this, attractionVo.getResult());
                         revAttraction.setAdapter(adapter);
 
 
