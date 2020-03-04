@@ -223,9 +223,8 @@ public class HotelSearchActivity extends BaseActivity
                 allSharedPrefernces.ClearAllData();
                 result = true;
                 Intent intent = new Intent(this, LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-                finish();
+                finishAffinity();
                 break;
         }
         return result;
