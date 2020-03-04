@@ -123,18 +123,19 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
     }
 
     private boolean isValidToPay() {
-        if (TextUtils.isEmpty(edt_email.getText().toString())) {
-            edt_email.setError("Email cannot be empty.");
-            return false;
-        }
+        boolean result = true;
         if (TextUtils.isEmpty(edt_name.getText().toString())) {
             edt_name.setError("Name cannot be empty.");
-            return false;
+            result = false;
+        }
+        if (TextUtils.isEmpty(edt_email.getText().toString())) {
+            edt_email.setError("Email cannot be empty.");
+            result = false;
         }
         if (TextUtils.isEmpty(edt_contactno.getText().toString())) {
-            return false;
+            result = false;
         }
-        return true;
+        return result;
     }
 
     private void setData() {
