@@ -3,6 +3,7 @@ package com.test.junket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -39,9 +40,6 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
     Webservice_Volley Volley = null;
     AllSharedPrefernces allSharedPrefernces;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +59,6 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
         edt_email = (EditText)findViewById(R.id.edt_email);
         edt_contactno = (EditText)findViewById(R.id.edt_contactno);
 
-
         String bookingInfoJson = getIntent().hasExtra("booking_info") ? getIntent().getStringExtra("booking_info") : "";
         bookingInfo = new Gson().fromJson(bookingInfoJson, HotelBookingInfo.class);
         roomData = bookingInfo.getRoomInfo();
@@ -69,16 +66,17 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
 
         Volley = new Webservice_Volley(this, this);
 
-
-
-
-
         setData();
 
         txt_pay.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if (!isValidToPay()) {
+                            return;
+                        }
+
                         //Voice Assistant module
                         String toSpeak = "Directing for Payment"
                                 + edt_name.getText().toString();
@@ -122,6 +120,21 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
 
 
         Volley.CallVolley(url, params, "add_booking");
+    }
+
+    private boolean isValidToPay() {
+        if (TextUtils.isEmpty(edt_email.getText().toString())) {
+            edt_email.setError("Email cannot be empty.");
+            return false;
+        }
+        if (TextUtils.isEmpty(edt_name.getText().toString())) {
+            edt_name.setError("Name cannot be empty.");
+            return false;
+        }
+        if (TextUtils.isEmpty(edt_contactno.getText().toString())) {
+            return false;
+        }
+        return true;
     }
 
     private void setData() {

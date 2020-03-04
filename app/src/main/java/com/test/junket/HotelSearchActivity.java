@@ -66,18 +66,23 @@ public class HotelSearchActivity extends BaseActivity
 
     AllSharedPrefernces allSharedPrefernces;
 
+    Calendar calendarFrom, calendarTo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_search);
-
-
 
         Volley = new Webservice_Volley(this, this);
 
         allSharedPrefernces = new AllSharedPrefernces(this);
 
         city = allSharedPrefernces.getSeletedCity();
+
+
+        calendarFrom = Calendar.getInstance();
+        calendarTo = Calendar.getInstance();
+        calendarTo.add(Calendar.DATE, 1);
 
 //        dest_id = getIntent().hasExtra("dest_id") ? getIntent().getStringExtra("dest_id") : "";
 
@@ -127,6 +132,10 @@ public class HotelSearchActivity extends BaseActivity
 
         revAttraction.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
 
+        txt_dateFrom.setText(new SimpleDateFormat("dd/MM/yyyy").format(calendarFrom.getTime()));
+        txt_dateTo.setText(new SimpleDateFormat("dd/MM/yyyy").format(calendarTo.getTime()));
+
+
 
         txt_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,14 +147,14 @@ public class HotelSearchActivity extends BaseActivity
         txt_dateTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDatePicker(txt_dateTo);
+                showToDatePicker(txt_dateTo);
             }
         });
 
         txt_dateFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDatePicker(txt_dateFrom);
+                showFromDatePicker(txt_dateFrom);
             }
         });
 
@@ -321,22 +330,46 @@ public class HotelSearchActivity extends BaseActivity
         countView.setText(String.valueOf(currentCount));
     }
 
-    private void showDatePicker(final TextView date) {
-        final Calendar cldr = Calendar.getInstance();
-        int day = cldr.get(Calendar.DAY_OF_MONTH);
-        int month = cldr.get(Calendar.MONTH);
-        int year = cldr.get(Calendar.YEAR);
+    private void showFromDatePicker(final TextView date) {
         // date picker dialog
         DatePickerDialog picker = new DatePickerDialog(this,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                        calendarFrom.set(Calendar.DATE, dayOfMonth);
+                        calendarFrom.set(Calendar.YEAR, year);
+                        calendarFrom.set(Calendar.MONTH, monthOfYear);
+
                     }
-                }, year, month, day);
+                }, calendarFrom.get(Calendar.YEAR), calendarFrom.get(Calendar.MONTH), calendarFrom.get(Calendar.DAY_OF_MONTH));
+
+        picker.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis());
+        picker.getDatePicker().setMaxDate(calendarTo.getTimeInMillis());
 
         picker.show();
     }
+
+    private void showToDatePicker(final TextView date) {
+        // date picker dialog
+        DatePickerDialog picker = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                        calendarTo.set(Calendar.DATE, dayOfMonth);
+                        calendarTo.set(Calendar.YEAR, year);
+                        calendarTo.set(Calendar.MONTH, monthOfYear);
+                    }
+                }, calendarTo.get(Calendar.YEAR), calendarTo.get(Calendar.MONTH), calendarTo.get(Calendar.DAY_OF_MONTH));
+
+        picker.getDatePicker().setMinDate(calendarFrom.getTimeInMillis());
+
+        picker.show();
+    }
+
 
     public Date parseDate(String dateString) {
         try {
