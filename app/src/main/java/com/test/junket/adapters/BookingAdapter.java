@@ -47,12 +47,16 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
 
         final BookingResultVo bookingResultVo = resultVos.get(i);
 
-        viewHolder.username.setText(bookingResultVo.getUsername());
+        viewHolder.username.setText(bookingResultVo.getUserName());
         viewHolder.dest_name.setText(bookingResultVo.getDestination());
+        viewHolder.hotel_name.setText(bookingResultVo.getHotelierName());
+        viewHolder.room_name.setText(bookingResultVo.getRoomType());
         viewHolder.checkin.setText(bookingResultVo.getCheckinDate());
         viewHolder.checkout.setText(bookingResultVo.getCheckoutDate());
-        viewHolder.rooms_per_days.setText(bookingResultVo.getTotalrooms() +" rooms for " + bookingResultVo.getTotalnight() + "nights");
+        viewHolder.pay_amount.setText(bookingResultVo.getPayamountPrice());
 
+        viewHolder.rooms_per_days.setText(bookingResultVo.getTotalrooms() +" rooms for " + bookingResultVo.getTotalnight() + "nights");
+        Picasso.get().load(bookingResultVo.getImage()).into(viewHolder.hotelimg);
 
     }
 
@@ -63,7 +67,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView username,hotel_name,room_name,rooms_per_days,dest_name,checkin,checkout;
+        TextView username,hotel_name,room_name,rooms_per_days,dest_name,checkin,checkout,pay_amount;
         ImageView hotelimg;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -76,6 +80,8 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
             dest_name = (TextView) itemView.findViewById(R.id.dest_name);
             checkin = (TextView) itemView.findViewById(R.id.checkin);
             checkout = (TextView) itemView.findViewById(R.id.checkout);
+            pay_amount = (TextView) itemView.findViewById(R.id.pay_amount);
+
             hotelimg = (ImageView) itemView.findViewById(R.id.hotelimg);
 
         }
