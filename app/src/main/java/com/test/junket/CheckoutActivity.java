@@ -80,7 +80,7 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
                     @Override
                     public void onClick(View v) {
                         //Voice Assistant module
-                        String toSpeak = "Generating your Bill "
+                        String toSpeak = "Directing for Payment"
                                 + edt_name.getText().toString();
                         assistance.speak(toSpeak);
 

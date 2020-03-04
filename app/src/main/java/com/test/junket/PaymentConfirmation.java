@@ -22,7 +22,6 @@ public class PaymentConfirmation extends BaseActivity {
 
         hotel_name.setText(name);
         trans_id.setText(id);
-
     }
 
     public void clickonback(View view) {
@@ -34,7 +33,6 @@ public class PaymentConfirmation extends BaseActivity {
         assistance.speak(toSpeak);
 
         startActivity(i);
-
         finishAffinity();
     }
 

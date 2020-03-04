@@ -12,6 +12,11 @@ public class PaymentFailed extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_failed);
 
+        //Voice Assistant module
+        String toSpeak = "Transaction Failed " + " Please try again ";
+
+        assistance.speak(toSpeak);
+
         String name = getIntent().hasExtra("hotel_name") ? getIntent().getStringExtra("hotel_name") : "";
 
         hotel_name = (TextView)findViewById(R.id.hotel_name);

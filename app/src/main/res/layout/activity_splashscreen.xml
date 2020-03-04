@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SplashscreenActivity"
     android:orientation="vertical"
-    android:background="@drawable/loginbgtravello"
+    android:background="@drawable/junketlogo"
     android:layout_alignParentBottom="true"
     android:gravity="bottom">
 
