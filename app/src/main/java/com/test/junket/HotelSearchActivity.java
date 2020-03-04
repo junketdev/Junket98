@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -230,10 +231,15 @@ public class HotelSearchActivity extends BaseActivity
     }
 
     private void showHotelList(View v) {
+        if (!isValidSearch()) {
+            return;
+        }
+
+        Intent i = new Intent(this, HotelListActivity.class);
+
         Date dateFrom = parseDate(txt_dateFrom.getText().toString());
         Date dateTo = parseDate(txt_dateTo.getText().toString());
 
-        Intent i = new Intent(this, HotelListActivity.class);
         HotelBookingInfo bookingInfo = new HotelBookingInfo(
                 dest_id,
                 dateFrom,
@@ -243,6 +249,7 @@ public class HotelSearchActivity extends BaseActivity
                 Integer.parseInt(txt_childrenCount.getText().toString()),
                 city
         );
+
         i.putExtra("booking_info", new Gson().toJson(bookingInfo));
 
         //Voice Assistant module
@@ -254,6 +261,22 @@ public class HotelSearchActivity extends BaseActivity
         assistance.speak(toSpeak);
 
         startActivity(i);
+    }
+
+    private boolean isValidSearch() {
+        if (TextUtils.isEmpty(txt_dateFrom.getText().toString()) ||
+                TextUtils.isEmpty(txt_dateTo.getText().toString())
+        ) {
+            Toast.makeText(this, "Please select date", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        Date dateFrom = parseDate(txt_dateFrom.getText().toString());
+        Date dateTo = parseDate(txt_dateTo.getText().toString());
+
+        return dateFrom.getTime() < dateTo.getTime() &&
+                Integer.parseInt(txt_adultsCount.getText().toString()) >= 1 &&
+                Integer.parseInt(txt_bedsCount.getText().toString()) >= 1;
     }
 
     @Override
@@ -293,7 +316,7 @@ public class HotelSearchActivity extends BaseActivity
 
     private void decrementer(TextView countView) {
         int currentCount = Integer.parseInt(countView.getText().toString());
-        if (currentCount <= 0) return;
+        if (currentCount <= 1) return;
         currentCount -= 1;
         countView.setText(String.valueOf(currentCount));
     }
