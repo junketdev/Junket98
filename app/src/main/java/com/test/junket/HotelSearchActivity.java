@@ -220,8 +220,12 @@ public class HotelSearchActivity extends BaseActivity
                 break;
 
             case R.id.menu_item_logout :
-                Toast.makeText(this, "Logout", Toast.LENGTH_LONG).show();
+                allSharedPrefernces.ClearAllData();
                 result = true;
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
                 break;
         }
         return result;
