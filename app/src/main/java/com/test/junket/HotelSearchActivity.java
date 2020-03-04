@@ -215,15 +215,18 @@ public class HotelSearchActivity extends BaseActivity
                 break;
 
             case R.id.menu_item_profile :
-                Toast.makeText(this, "Profile", Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(this,ProfileActivity.class);
+                startActivity(intent);
+
                 result = true;
                 break;
 
             case R.id.menu_item_logout :
                 allSharedPrefernces.ClearAllData();
                 result = true;
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                Intent in = new Intent(this, LoginActivity.class);
+                startActivity(in);
                 finishAffinity();
                 break;
         }
