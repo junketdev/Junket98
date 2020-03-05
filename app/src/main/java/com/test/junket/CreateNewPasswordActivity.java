@@ -91,7 +91,7 @@ public class CreateNewPasswordActivity extends BaseActivity implements DataInter
 
                 Intent i = new Intent(this, LoginActivity.class);
                 startActivity(i);
-
+                finishAffinity();
             }
 
 
