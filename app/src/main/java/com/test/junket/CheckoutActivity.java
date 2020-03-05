@@ -133,6 +133,7 @@ public class  CheckoutActivity extends BaseActivity implements DataInterface {
             result = false;
         }
         if (TextUtils.isEmpty(edt_contactno.getText().toString())) {
+            edt_contactno.setError("Contact number cannot be empty.");
             result = false;
         }
         return result;
