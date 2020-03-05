@@ -139,12 +139,12 @@ public class ProfileActivity extends BaseActivity implements DataInterface {
 
                 HashMap<String, String> params = new HashMap<>();
 
+                params.put("user_id", allSharedPrefernces.getCustomerNo());
                 params.put("user_name", uname.getText().toString());
                 params.put("contact_no", edt_contactno.getText().toString());
                 params.put("dob", dob.getText().toString());
                 params.put("gender", edt_gender.getText().toString());
-
-                params.put("user_id", "3");
+                params.put("profile_pic", "");  //  Pass url here to save image of the user.
 
                 Volley.CallVolley(url, params, "edit_profile");
             }
