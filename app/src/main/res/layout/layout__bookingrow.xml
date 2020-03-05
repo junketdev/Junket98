@@ -1,62 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    tools:background="@color/colorBackground">
 
-    >
-
-
-
-        <TextView
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/username"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            tools:text="NAME"
-            android:textColor="@color/white"
-            android:padding="8dp"
-
-            />
+    <TextView
+        android:id="@+id/hotel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        tools:text="NAME OF HOTEL"
+        />
 
 
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/hotel_name"
-            android:textSize="15sp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Hotel Name"
-            android:textColor="@color/white"
-            android:padding="8dp"
-            android:gravity="left"
-            />
+    <TextView
+        android:id="@+id/dest_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textAlignment="textEnd"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        tools:text="Destination" />
 
     <LinearLayout
         android:id="@+id/linear2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
         android:baselineAligned="true"
         android:orientation="horizontal"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginTop="8dp">
 
         <ImageView
             android:id="@+id/hotelimg"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="250dp"
+            android:layout_height="130dp"
             android:layout_gravity="left|center_vertical"
             android:layout_weight="1"
             android:scaleType="fitXY"
@@ -65,65 +53,63 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
             android:orientation="vertical"
             android:paddingTop="10dp">
-            <TextView
 
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:text="Hotel Name" />
+
+            <TextView
                 android:id="@+id/room_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-
                 android:padding="8dp"
-                tools:text="Room Name"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                tools:text="Room Name" />
+
             <TextView
                 android:id="@+id/rooms_per_days"
-                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                tools:text="2 Rooms 2 night"
-                android:textColor="@color/white"
-                android:padding="8dp"
                 android:hint="2 Rooms 2 Night"
-                android:textSize="15sp" />
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:text="2 Rooms 2 night"
+                android:layout_marginBottom="8dp"/>
 
         </LinearLayout>
 
-        </LinearLayout>
-    <TextView
-        android:id="@+id/dest_name"
-        android:textSize="15sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Destination"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:padding="8dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
 
             <TextView
@@ -132,48 +118,51 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                tools:text="Check In"
                 android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:layout_marginRight="4dp"
+                android:textSize="15dp"
+                tools:text="Check In" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:text="TO"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/checkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:padding="8dp"
-                tools:text="Check Out"
                 android:textColor="@color/white"
-
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                tools:text="Check Out" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/pay_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-
             android:gravity="center"
             android:padding="10dp"
-            android:text="Pay Amount"
+            android:text="Paid Amount"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dcdcdc"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:background="#dcdcdc" />
     </LinearLayout>
 </LinearLayout>

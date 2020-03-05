@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import com.test.junket.HotelSearchActivity;
 import com.test.junket.R;
 import com.test.junket.Utils.AllSharedPrefernces;
+import com.test.junket.Utils.Constants;
 import com.test.junket.models.BookingResultVo;
 import com.test.junket.models.DestinationResultVo;
 
@@ -47,13 +48,13 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
 
         final BookingResultVo bookingResultVo = resultVos.get(i);
 
-        viewHolder.username.setText(bookingResultVo.getUserName());
-        viewHolder.dest_name.setText(bookingResultVo.getDestination());
+        viewHolder.username.setText("Booked by:  "+bookingResultVo.getUserName());
+        viewHolder.dest_name.setText("Destination: " +bookingResultVo.getDestination());
         viewHolder.hotel_name.setText(bookingResultVo.getHotelierName());
         viewHolder.room_name.setText(bookingResultVo.getRoomType());
         viewHolder.checkin.setText(bookingResultVo.getCheckinDate());
         viewHolder.checkout.setText(bookingResultVo.getCheckoutDate());
-        viewHolder.pay_amount.setText(bookingResultVo.getPayamountPrice());
+        viewHolder.pay_amount.setText(Constants.rupee_code + " " +bookingResultVo.getPayamountPrice()+" Paid");
 
         viewHolder.rooms_per_days.setText(bookingResultVo.getTotalrooms() +" rooms for " + bookingResultVo.getTotalnight() + "nights");
         Picasso.get().load(bookingResultVo.getImage()).into(viewHolder.hotelimg);
