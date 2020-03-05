@@ -48,7 +48,7 @@ public class HotelRoomAdapter extends RecyclerView.Adapter<HotelRoomAdapter.MyVi
         viewHolder.txt_roomprice.setText(hotelRoomVo.getRoomPrice() + "/Night");
         //viewHolder.btn_bookroom.setText(hotelRoomVo.getRoomDescription());
 
-        Picasso.get().load(hotelRoomVo.getImg1()).into(viewHolder.img_roompic);
+        Picasso.get().load(hotelRoomVo.getImg1()).resize(500, 500).into(viewHolder.img_roompic);
        /* Picasso.get().load(hotelRoomVo.getImg2()).into(viewHolder.img_roompic);
         Picasso.get().load(hotelRoomVo.getImg3()).into(viewHolder.img_roompic);*/
 
