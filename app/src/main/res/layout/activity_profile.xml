@@ -341,14 +341,13 @@
             <EditText
                 android:id="@+id/dob"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#0000"
-
                 android:gravity="right"
                 android:maxLength="12"
                 android:padding="16dp"
+                android:focusableInTouchMode="false"
                 android:textColorHint="#181737"
                 android:textSize="16dp" />
 
