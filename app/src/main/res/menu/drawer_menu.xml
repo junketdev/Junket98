@@ -12,9 +12,36 @@
         />
 
     <item
-        android:id="@+id/menu_item_logout"
-        android:title="Logout"
+        android:id="@+id/menu_item_questionnaire"
+        android:title="Questionnaire"
         />
 
+    <item
+        android:id="@+id/menu_item_vtg"
+        android:title="Virtual Tour Guide"
+        />
+
+    <item
+        android:id="@+id/menu_item_ar"
+        android:title="Augmented Reality"
+        />
+
+    <item
+        android:id="@+id/menu_item_complains"
+        android:title="Complain"
+        />
+
+    <item
+        android:id="@+id/menu_item_terms_and_condition"
+        android:title="Terms &amp; Conditions"
+        />
+
+    <item
+        android:id="@+id/menu_item_settings"
+        android:title="Settings" />
+
+    <item
+        android:id="@+id/menu_item_logout"
+        android:title="Logout" />
 
 </menu>

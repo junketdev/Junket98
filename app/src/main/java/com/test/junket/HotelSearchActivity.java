@@ -8,7 +8,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -104,12 +103,12 @@ public class HotelSearchActivity extends BaseActivity
         toolbar_location_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HotelSearchActivity.this,SelectCityActivity.class);
+                Intent i = new Intent(HotelSearchActivity.this, SelectCityActivity.class);
                 startActivity(i);
             }
         });
 
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         CustomPagerAdapter adapter = new CustomPagerAdapter(this);
         viewPager.setAdapter(adapter);
@@ -119,8 +118,8 @@ public class HotelSearchActivity extends BaseActivity
         navigation_view.addHeaderView(drawerHeader);
 
 
-        TextView txt_name = (TextView)drawerHeader.findViewById(R.id.txt_name);
-        ImageView iv_profileImage = (ImageView)drawerHeader.findViewById(R.id.iv_profileImage);
+        TextView txt_name = (TextView) drawerHeader.findViewById(R.id.txt_name);
+        ImageView iv_profileImage = (ImageView) drawerHeader.findViewById(R.id.iv_profileImage);
 
         try {
 
@@ -130,9 +129,7 @@ public class HotelSearchActivity extends BaseActivity
                 txt_name.setText(jsonObject.getString("user_name"));
             }
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -155,13 +152,12 @@ public class HotelSearchActivity extends BaseActivity
         txt_name = (TextView) findViewById(R.id.txt_name);
         iv_profileImage = (ImageView) findViewById(R.id.iv_profileImage);
 
-        revAttraction = (RecyclerView)findViewById(R.id.revAttraction);
+        revAttraction = (RecyclerView) findViewById(R.id.revAttraction);
 
-        revAttraction.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+        revAttraction.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         txt_dateFrom.setText(new SimpleDateFormat("dd/MM/yyyy").format(calendarFrom.getTime()));
         txt_dateTo.setText(new SimpleDateFormat("dd/MM/yyyy").format(calendarTo.getTime()));
-
 
 
         txt_search.setOnClickListener(new View.OnClickListener() {
@@ -232,30 +228,70 @@ public class HotelSearchActivity extends BaseActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Boolean result = false;
         switch (menuItem.getItemId()) {
-            case R.id.menu_item_my_bookings :
-
-                Intent i = new Intent(this,MyBookingActivity.class);
+            case R.id.menu_item_my_bookings: {
+                Intent i = new Intent(this, MyBookingActivity.class);
                 startActivity(i);
-
-
                 result = true;
                 break;
+            }
 
-            case R.id.menu_item_profile :
-
-                Intent intent = new Intent(this,ProfileActivity.class);
+            case R.id.menu_item_profile: {
+                Intent intent = new Intent(this, ProfileActivity.class);
                 startActivity(intent);
-
                 result = true;
                 break;
+            }
 
-            case R.id.menu_item_logout :
+            case R.id.menu_item_questionnaire: {
+                Intent intent = new Intent(this, QuestionnaireActivity.class);
+                startActivity(intent);
+                result = true;
+                break;
+            }
+
+            case R.id.menu_item_vtg: {
+                Intent intent = new Intent(this, VirtualTourGuideActivity.class);
+                startActivity(intent);
+                result = true;
+                break;
+            }
+
+            case R.id.menu_item_ar: {
+                Intent intent = new Intent(this, AugmentedRealityActivity.class);
+                startActivity(intent);
+                result = true;
+                break;
+            }
+
+            case R.id.menu_item_complains: {
+                Intent intent = new Intent(this, ComplainActivity.class);
+                startActivity(intent);
+                result = true;
+                break;
+            }
+
+            case R.id.menu_item_terms_and_condition: {
+                Intent intent = new Intent(this, TermsAndConditionsActivity.class);
+                startActivity(intent);
+                result = true;
+                break;
+            }
+
+            case R.id.menu_item_settings: {
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                result = true;
+                break;
+            }
+
+            case R.id.menu_item_logout: {
                 allSharedPrefernces.ClearAllData();
                 result = true;
                 Intent in = new Intent(this, LoginActivity.class);
                 startActivity(in);
                 finishAffinity();
                 break;
+            }
         }
         return result;
     }
@@ -325,7 +361,7 @@ public class HotelSearchActivity extends BaseActivity
     public void getData(JSONObject jsonObject, String tag) {
         try {
 
-            AttractionVo attractionVo = new Gson().fromJson(jsonObject.toString(),AttractionVo.class);
+            AttractionVo attractionVo = new Gson().fromJson(jsonObject.toString(), AttractionVo.class);
 
             if (attractionVo != null) {
 
@@ -344,8 +380,7 @@ public class HotelSearchActivity extends BaseActivity
             }
 
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
