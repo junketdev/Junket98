@@ -6,7 +6,7 @@ package com.test.junket.Utils;
 public class Constants {
 
 
-    public static final String Webserive_Url="http://192.168.43.87:8012/Project/API/";
+    public static final String Webserive_Url="http://192.168.1.10/Project/API/";
 
 
 
