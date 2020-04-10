@@ -453,4 +453,12 @@ public class HotelSearchActivity extends BaseActivity
         return null;
     }
 
+    public void ClickOnQr(View view) {
+        startActivity(new Intent(HotelSearchActivity.this,ScannerActivity.class));
+    }
+
+    public void ClickOnIndoorMap(View view) {
+        startActivity(new Intent(HotelSearchActivity.this,IndoorMapActivity.class));
+    }
+
 }

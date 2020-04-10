@@ -22,9 +22,7 @@ public class LoginActivity extends BaseActivity implements DataInterface {
 
     EditText edt_email,edt_password;
     Button btn_login;
-
     Webservice_Volley Volley = null;
-
     AllSharedPrefernces allSharedPrefernces;
 
     @Override
@@ -36,11 +34,9 @@ public class LoginActivity extends BaseActivity implements DataInterface {
 
         edt_email = (EditText)findViewById(R.id.edt_email);
         edt_password = (EditText)findViewById(R.id.edt_password);
-
         btn_login = (Button)findViewById(R.id.btn_login);
 
         Volley = new Webservice_Volley(this,this);
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,23 +45,17 @@ public class LoginActivity extends BaseActivity implements DataInterface {
                     edt_email.setError("Please Enter Valid Email.");
                     return;
                 }
-
                 if (!CommonFunctions.checkPassword(edt_password.getText().toString())){
                     edt_password.setError("Password must be 6 char. long");
                     return;
                 }
-
                 String url = Constants.Webserive_Url+ "user_login.php";
 
                 HashMap<String,String> params = new HashMap<>();
-
                 params.put("email",edt_email.getText().toString());
                 params.put("user_password",edt_password.getText().toString());
-
                 Volley.CallVolley(url,params,"user_login");
-
-
-            }
+    }
         });
 
     }
@@ -74,7 +64,6 @@ public class LoginActivity extends BaseActivity implements DataInterface {
 
         Intent i = new Intent(this,SignupActivity.class);
         startActivity(i);
-
     }
 
     @Override
@@ -82,14 +71,12 @@ public class LoginActivity extends BaseActivity implements DataInterface {
 //        Log.d("Login", jsonObject.toString());
         try{
             if(jsonObject.getInt("response") == 1) {
-
                 allSharedPrefernces.setUserLogin(true);
                 allSharedPrefernces.setCustomerNo(jsonObject.getString("id"));
                 allSharedPrefernces.setCustomerData(jsonObject.getJSONObject("data").toString());
 
                 Intent i = new Intent(this,SelectCityActivity.class);
                 startActivity(i);
-
                 finish();
             }
         }

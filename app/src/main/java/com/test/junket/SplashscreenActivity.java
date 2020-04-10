@@ -8,24 +8,19 @@ import android.text.TextUtils;
 import com.test.junket.Utils.AllSharedPrefernces;
 
 public class SplashscreenActivity extends BaseActivity {
-
     AllSharedPrefernces allSharedPrefernces;
-
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
         allSharedPrefernces = new AllSharedPrefernces(this);
-
         Thread background = new Thread() {
             public void run() {
                 try {
-                    // Thread will sleep for 5 seconds
+                    // Thread will sleep for 2 seconds
                     sleep(2*1000);
-
                     Intent i;
-
                     // After 5 seconds redirect to another intent
                     if (allSharedPrefernces.isUserLogin()) {
                         if (TextUtils.isEmpty(allSharedPrefernces.getSeletedCity())) {
@@ -37,10 +32,7 @@ public class SplashscreenActivity extends BaseActivity {
                         i = new Intent(getBaseContext(), LoginActivity.class);
                     }
 
-                    // Start activity
                     startActivity(i);
-
-                    //Remove activity
                     finish();
                 } catch (Exception e) {
                     e.printStackTrace();

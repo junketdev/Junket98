@@ -114,17 +114,14 @@ public class SignupActivity extends BaseActivity implements DataInterface {
                 }
 
                 String url = Constants.Webserive_Url + "user_signup.php";
-
-                HashMap<String, String> params = new HashMap<>();
-
-                params.put("user_name", edt_name.getText().toString());
+                 HashMap<String, String> params = new HashMap<>();
+                 params.put("user_name", edt_name.getText().toString());
                 params.put("email", edt_email.getText().toString());
                 params.put("contact_no", edt_contactno.getText().toString());
                 params.put("dob", edt_dob.getText().toString());
                 params.put("gender", gender);
                 params.put("profile_pic", "");
                 params.put("user_password", edt_password.getText().toString());
-
                 Volley.CallVolley(url, params, "user_signup");
             }
         });

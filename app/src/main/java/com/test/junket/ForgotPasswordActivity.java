@@ -39,13 +39,9 @@ public class ForgotPasswordActivity extends BaseActivity implements DataInterfac
                    verified_email.setError("Please Enter Valid Email.");
                    return;
                }
-
                String url = Constants.Webserive_Url+ "forgotpsw.php";
-
                HashMap<String,String> params = new HashMap<>();
-
                params.put("email",verified_email.getText().toString());
-
                Volley.CallVolley(url,params,"forgotpsw");
            }
        });
@@ -61,27 +57,20 @@ public class ForgotPasswordActivity extends BaseActivity implements DataInterfac
         try
         {
             Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-
             if (jsonObject.getString("response").equalsIgnoreCase("1"))
             {
                 String code = jsonObject.getString("verificationcode");
                 String id = jsonObject.getString("id");
-
                 Log.d("##MY_CODE","==> "+code);
-
                 Intent i = new Intent(this, ResetPasswordActivity.class);
                 i.putExtra("code",code);
                 i.putExtra("id",id);
                 startActivity(i);
-
             }
-
-
-        }
+ }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-
     }
 }

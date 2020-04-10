@@ -21,42 +21,31 @@ public class AttractionResultVo {
     @Expose
     private String dest_id;
 
-
-
     public String getAttractionName() {
         return name;
     }
-
     public void setAttractionName(String destId) {
         this.name = name;
     }
 
-
     public String getAttractionDescription() {
         return description;
     }
-
     public void setAttractionDescription(String description) {
         this.description = description;
     }
 
-
     public String getAttractionImages() {
         return images;
     }
-
     public void setAttractionImages(String images) {
         this.images = images;
     }
 
-
     public String getAttractionDestId() {
         return dest_id;
     }
-
     public void setAttractionDestId(String dest_id) {
         this.dest_id = dest_id;
     }
-
-
 }

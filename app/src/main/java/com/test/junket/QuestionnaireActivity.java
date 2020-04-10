@@ -55,12 +55,8 @@ public class QuestionnaireActivity extends BaseActivity implements DataInterface
         rb_option4 = findViewById(R.id.rb_option4);
 
         Volley = new Webservice_Volley(this,this);
-
-
         String url = Constants.Webserive_Url+ "get_questionnaire.php";
-
         HashMap<String,String> params = new HashMap<>();
-
         Volley.CallVolley(url,params,"get_questionnaire");
 
         btn_continue.setOnClickListener(new View.OnClickListener() {
@@ -70,26 +66,16 @@ public class QuestionnaireActivity extends BaseActivity implements DataInterface
                 RadioButton rb  = (RadioButton)findViewById(rg_questions.getCheckedRadioButtonId());
 
                 if (rb  != null) {
-
                     sb.append(rb.getText().toString()).append(",");
-
-
                     count++;
                     setData();
-
-
                 }
                 else {
                     Snackbar.make(v,"Please Selet atleast one option before continue.",Snackbar.LENGTH_LONG).show();
                 }
-
-
-
-
             }
         });
-
-    }
+}
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
@@ -99,9 +85,7 @@ public class QuestionnaireActivity extends BaseActivity implements DataInterface
             QuestionListVo questionListVo = new Gson().fromJson(jsonObject.toString(),QuestionListVo.class);
 
             if (questionListVo != null) {
-
                 if (questionListVo.getResult() != null) {
-
                     if (questionListVo.getResult().size() > 0) {
 
                     questionList.clear();
@@ -109,26 +93,16 @@ public class QuestionnaireActivity extends BaseActivity implements DataInterface
 
                     count=0;
                     setData();
-
                     }
-
-
                 }
-
             }
-
-
         }
         catch (Exception e){
             e.printStackTrace();
         }
-
-
-
-    }
+}
 
     public void setData() {
-
         if (count >= questionList.size()) {
 
             Intent i = new Intent(QuestionnaireActivity.this, DestinationListActivity.class);
@@ -136,7 +110,6 @@ public class QuestionnaireActivity extends BaseActivity implements DataInterface
             startActivity(i);
 
             finish();
-
             return;
         }
 

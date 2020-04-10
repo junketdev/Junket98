@@ -27,7 +27,6 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
 {
     Context mContext;
     List<AttractionResultVo> resultVos = new ArrayList<>();
-
     public AttractionAdapter(Context context, List<AttractionResultVo> resultVoList) {
         mContext = context;
         resultVos = resultVoList;
@@ -35,10 +34,9 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
 
     @NonNull
     @Override
-    public AttractionAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
+    public AttractionAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    {
         View vs = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_attraction_row,viewGroup,false);
-
         return new AttractionAdapter.MyViewHolder(vs);
     }
 
@@ -50,22 +48,15 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
 
             viewHolder.txt_attr_name.setText(attractionResultVo.getAttractionName());
             viewHolder.txt_attr_description.setText(attractionResultVo.getAttractionDescription());
-            //viewHolder.txt_hotelrating.setText(attractionResultVo.getAttractionImages());
-            //viewHolder.txt_hotelrating.setText(attractionResultVo.getAttractionDestId());
-
             Picasso.get().load(attractionResultVo.getAttractionImages()).into(viewHolder.img_attraction);
-
-
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // OPEN ATTRACTION DETAIL PAGE !!
-
                     Intent i = new Intent(mContext, AttractionDescription.class);
                     i.putExtra("data", new Gson().toJson(attractionResultVo));
                     mContext.startActivity(i);
-
-                }
+        }
             });
         }
         catch (Exception e) {
@@ -77,20 +68,15 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.My
     public int getItemCount() {
         return resultVos.size();
     }
-
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView txt_attr_name,txt_attr_description;
         ImageView img_attraction;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             txt_attr_name = (TextView)itemView.findViewById(R.id.txt_attr_name);
             txt_attr_description = (TextView)itemView.findViewById(R.id.txt_attr_description);
             img_attraction = (ImageView) itemView.findViewById(R.id.img_attraction);
-
-
         }
     }
 }
