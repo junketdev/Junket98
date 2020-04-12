@@ -31,14 +31,14 @@
         android:title="Complain"
         />
 
-    <item
+    <!--<item
         android:id="@+id/menu_item_terms_and_condition"
         android:title="Terms &amp; Conditions"
-        />
+        />-->
 
-    <item
+    <!--<item
         android:id="@+id/menu_item_settings"
-        android:title="Settings" />
+        android:title="Settings" />-->
 
     <item
         android:id="@+id/menu_item_logout"

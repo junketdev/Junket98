@@ -270,19 +270,19 @@ public class HotelSearchActivity extends BaseActivity
                 break;
             }
 
-            case R.id.menu_item_terms_and_condition: {
+            /*case R.id.menu_item_terms_and_condition: {
                 Intent intent = new Intent(this, TermsAndConditionsActivity.class);
                 startActivity(intent);
                 result = true;
                 break;
-            }
+            }*/
 
-            case R.id.menu_item_settings: {
+            /*case R.id.menu_item_settings: {
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 result = true;
                 break;
-            }
+            }*/
 
             case R.id.menu_item_logout: {
                 allSharedPrefernces.ClearAllData();
