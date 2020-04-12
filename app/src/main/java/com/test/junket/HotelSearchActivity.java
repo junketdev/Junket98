@@ -249,19 +249,19 @@ public class HotelSearchActivity extends BaseActivity
                 break;
             }
 
-            case R.id.menu_item_vtg: {
+            /*case R.id.menu_item_vtg: {
                 Intent intent = new Intent(this, VirtualTourGuideActivity.class);
                 startActivity(intent);
                 result = true;
                 break;
-            }
+            }*/
 
-            case R.id.menu_item_ar: {
+            /*case R.id.menu_item_ar: {
                 Intent intent = new Intent(this, AugmentedRealityActivity.class);
                 startActivity(intent);
                 result = true;
                 break;
-            }
+            }*/
 
             case R.id.menu_item_complains: {
                 Intent intent = new Intent(this, ComplainActivity.class);
