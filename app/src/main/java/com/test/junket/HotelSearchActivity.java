@@ -263,12 +263,12 @@ public class HotelSearchActivity extends BaseActivity
                 break;
             }*/
 
-            case R.id.menu_item_complains: {
+            /*case R.id.menu_item_complains: {
                 Intent intent = new Intent(this, ComplainActivity.class);
                 startActivity(intent);
                 result = true;
                 break;
-            }
+            }*/
 
             /*case R.id.menu_item_terms_and_condition: {
                 Intent intent = new Intent(this, TermsAndConditionsActivity.class);

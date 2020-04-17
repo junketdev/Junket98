@@ -26,10 +26,10 @@
         android:title="Augmented Reality"
         />-->
 
-    <item
+    <!--<item
         android:id="@+id/menu_item_complains"
         android:title="Complain"
-        />
+        />-->
 
     <!--<item
         android:id="@+id/menu_item_terms_and_condition"

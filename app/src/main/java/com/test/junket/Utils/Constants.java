@@ -4,7 +4,7 @@ package com.test.junket.Utils;
  * Created by MTAJ-08 on 12/5/2016.
  */
 public class Constants {
-   public static final String Webserive_Url="http://192.168.0.106/Project_junket/API/";
+   public static final String Webserive_Url="http://192.168.1.11/junket/API/";
 //    public static final String Webserive_Url="http://192.168.43.87:8012/Project/API/";
     public static final String LOGIN_PREF="LOGIN_PREF";
     public static final String IS_LOGIN="IS_LOGIN";
